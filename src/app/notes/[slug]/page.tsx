@@ -35,10 +35,10 @@ export default async function NotePage({ params }: PageProps) {
       <article className="px-5 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pt-36">
         <div className="mx-auto max-w-2xl pb-20 sm:pb-28">
           <Link
-            href="/portfolio/#notes"
+            href="/portfolio/"
             className="text-sm text-muted transition-colors hover:text-foreground"
           >
-            ← Notes from the work
+            ← Back to portfolio
           </Link>
 
           <p className="mt-10 text-[13px] text-muted">{note.readTime}</p>

@@ -54,7 +54,7 @@ function uniqueGallery(_hero: string, shots: MediaShot[]): MediaShot[] {
 const rawMedia: Record<string, ProjectMediaConfig> = {
   "data-agent": {
     slug: "data-agent",
-    // Primary portfolio visual: sanitized Sample Services Agreement product UI.
+    // Primary visual: sanitized Sample Services Agreement product UI (no private data).
     heroImage: "/projects/data-agent-extract-ui.jpg",
     heroCaption: "Turn complex documents into structured, usable information.",
     heroFit: "contain",
@@ -243,11 +243,11 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
 
   "smartwrite-ai": {
     slug: "smartwrite-ai",
-    heroImage: "/projects/smartwrite-1-editor.png",
+    heroImage: "/projects/smartwrite-card.png",
     heroCaption: "SmartWrite writing workspace with modes, editor and suggestions.",
     heroPresentation: "browser",
     heroDensity: "dense",
-    cardImage: "/projects/smartwrite-1-editor.png",
+    cardImage: "/projects/smartwrite-card.png",
     galleryHeading: "Product experience",
     // Remaining smartwrite-* assets are near-duplicates of the hero workspace —
     // never pad the gallery by repeating the same screen.
@@ -340,7 +340,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
       "AppointEase homepage — guest booking portal with clinic, provider and time slots.",
     heroPresentation: "browser",
     heroDensity: "dense",
-    cardImage: "/projects/appointease-g2-clinic.png",
+    cardImage: "/projects/appointease-card.png",
     chromeHost: "appointease-psi.vercel.app",
     galleryHeading: "Product experience",
     gallerySubheading: "Book an Appointment → Choose a Clinic → Clinic Onboarding",
@@ -354,7 +354,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         density: "dense",
       },
       {
-        src: "/projects/appointease-g2-clinic.png",
+        src: "/projects/appointease-card.png",
         label: "02 — Choose a Clinic",
         caption:
           "Patient booking flow — Select a clinic with location, hours and service counts.",
@@ -372,18 +372,18 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
 
   "smart-appliances": {
     slug: "smart-appliances",
-    heroImage: "/projects/smart-appliances-1-hero.png",
+    heroImage: "/projects/smart-appliances-card.png",
     heroCaption:
       "Smart Appliances homepage — service discovery with free quote request.",
     heroPresentation: "browser",
     heroDensity: "dense",
-    cardImage: "/projects/smart-appliances-1-hero.png",
+    cardImage: "/projects/smart-appliances-card.png",
     chromeHost: "project-i8icw-ebon.vercel.app",
     galleryHeading: "Selected screens",
     gallerySubheading: "Service Discovery → Service Selection → Booking Request",
     gallery: [
       {
-        src: "/projects/smart-appliances-1-hero.png",
+        src: "/projects/smart-appliances-card.png",
         label: "01 — Service Discovery",
         caption:
           "Homepage hero — home appliance repair proposition and Get a Free Service Quote.",

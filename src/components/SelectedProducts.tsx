@@ -14,7 +14,7 @@ export function SelectedProducts({ projects }: { projects: Project[] }) {
       className="scroll-mt-24 border-t border-black/5 bg-band-light px-5 py-12 text-band-light-fg sm:px-8 sm:py-16 lg:px-10 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="meta-label text-band-light-muted">Selected products</p>
+        <p className="meta-label text-band-light-muted">Selected work</p>
         <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl lg:text-5xl">
           Work built around real problems.
         </h2>

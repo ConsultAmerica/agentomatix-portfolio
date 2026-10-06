@@ -111,7 +111,7 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
       className="scroll-mt-24 border-t border-black/5 bg-band-light px-5 py-12 text-band-light-fg sm:px-8 sm:py-14 lg:px-10 lg:py-20"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="meta-label text-band-light-muted">More shipped work</p>
+        <p className="meta-label text-band-light-muted">From concept</p>
         <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl lg:text-5xl">
           From concept to live product.
         </h2>

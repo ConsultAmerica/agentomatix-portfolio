@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
-import { AiInAction, CraftingProducts } from "@/components/SelectedWork";
 import { SelectedProducts } from "@/components/SelectedProducts";
 import { MoreWorkTable } from "@/components/MoreWorkTable";
-import { notes } from "@/data/notes";
 import {
-  getAiInActionProjects,
   getMoreWorkProjects,
   getSelectedProducts,
   heroCapabilities,
   processSteps,
-  proofPoints,
 } from "@/data/projects";
 
 export const metadata: Metadata = {
@@ -23,19 +19,14 @@ export const metadata: Metadata = {
     description:
       "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
     type: "website",
-    url: "https://agentomatix-portfolio.pages.dev/portfolio/",
+    url: "https://agentomatic-portfolio.vercel.app/portfolio/",
     siteName: "Agentomatix",
   },
 };
 
 export default function PortfolioPage() {
   const selectedProducts = getSelectedProducts();
-  const aiInAction = getAiInActionProjects();
   const moreWork = getMoreWorkProjects();
-  const homepageNotes = [
-    notes.find((n) => n.slug === "rag-isnt-the-product")!,
-    notes.find((n) => n.slug === "ai-mvp-lessons")!,
-  ];
 
   return (
     <main id="top" className="relative bg-background text-foreground">
@@ -46,7 +37,7 @@ export default function PortfolioPage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(37,99,235,0.18),_transparent_55%),radial-gradient(ellipse_at_bottom_left,_rgba(14,165,233,0.1),_transparent_50%)]"
         />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-8 pb-10 lg:grid-cols-12 lg:gap-8 lg:pb-12">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 pb-12 lg:grid-cols-12 lg:gap-8 lg:pb-16">
           <div className="lg:col-span-7">
             <p className="reveal-up meta-label text-muted">Consult America</p>
             <p className="reveal-up mt-1.5 text-sm font-medium tracking-wide text-accent">
@@ -114,36 +105,13 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="border-y border-black/5 bg-band-light text-band-light-fg">
-        <div className="mx-auto grid max-w-6xl gap-0 px-5 py-10 sm:grid-cols-3 sm:px-8 sm:py-12 lg:px-10">
-          {proofPoints.map((point, index) => (
-            <div
-              key={point.step}
-              className={`py-3 sm:px-5 sm:py-0 ${
-                index > 0 ? "border-t border-black/8 sm:border-l sm:border-t-0" : ""
-              } ${index === 0 ? "sm:pl-0" : ""}`}
-            >
-              <p className="meta-label text-band-light-muted">{point.step}</p>
-              <p className="mt-2 text-lg font-semibold tracking-tight sm:text-xl">
-                {point.value}
-              </p>
-              <p className="mt-1 text-sm text-band-light-muted">{point.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <SelectedProducts projects={selectedProducts} />
-
-      <CraftingProducts />
-
-      <AiInAction projects={aiInAction} />
 
       <MoreWorkTable projects={moreWork} />
 
       <section className="border-t border-black/5 bg-band-light px-5 py-12 text-band-light-fg sm:px-8 sm:py-14 lg:px-10 lg:py-16">
         <div className="mx-auto max-w-6xl">
-          <p className="meta-label text-band-light-muted">How we build</p>
+          <p className="meta-label text-band-light-muted">How we work</p>
           <h2 className="section-heading mt-2 text-3xl sm:text-4xl">
             Discover → Design → Build → Deploy
           </h2>
@@ -161,35 +129,6 @@ export default function PortfolioPage() {
                   {step.description}
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="notes"
-        className="scroll-mt-24 border-t border-border bg-band-dark px-5 py-12 text-band-dark-fg sm:px-8 sm:py-14 lg:px-10"
-      >
-        <div className="mx-auto max-w-6xl">
-          <p className="meta-label text-band-dark-muted">Notes</p>
-          <h2 className="section-heading mt-2 text-3xl sm:text-4xl">Thinking from the work</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {homepageNotes.map((note) => (
-              <Link
-                key={note.slug}
-                href={`/notes/${note.slug}/`}
-                className="group rounded-[12px] border border-white/10 bg-[#122844] p-5 transition-colors hover:border-cyan-400/30"
-              >
-                <p className="text-[12px] tracking-wide text-band-dark-muted">{note.readTime}</p>
-                <h3 className="mt-2 text-xl font-semibold tracking-tight">{note.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-band-dark-muted">{note.excerpt}</p>
-                <span className="link-arrow mt-4 inline-flex items-center gap-2 text-sm font-medium text-cyan-300">
-                  Read note
-                  <span className="arrow transition-transform duration-300" aria-hidden="true">
-                    →
-                  </span>
-                </span>
-              </Link>
             ))}
           </div>
         </div>

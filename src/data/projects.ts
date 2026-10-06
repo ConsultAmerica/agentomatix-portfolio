@@ -481,7 +481,7 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "OpenAI API", "Tailwind CSS"],
     disciplines: ["AI Product", "SaaS", "Engineering"],
     liveUrl: "https://grammarly-app-seven.vercel.app/",
-    image: "/projects/smartwrite-1-editor.png",
+    image: "/projects/smartwrite-card.png",
     imageFit: "contain",
     tier: "selected",
     featured: false,
@@ -513,7 +513,7 @@ export const projects: Project[] = [
         {
           label: "01 — Editor",
           caption: "Writing workspace with rewrite actions and issues panel.",
-          image: "/projects/smartwrite-1-editor.png",
+          image: "/projects/smartwrite-card.png",
         },
         {
           label: "02 — Writing modes",
@@ -719,7 +719,7 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS"],
     disciplines: ["Services", "Booking", "Web"],
     liveUrl: "https://project-i8icw-ebon.vercel.app/",
-    image: "/projects/smart-appliances-1-hero.png",
+    image: "/projects/smart-appliances-card.png",
     imageFit: "contain",
     tier: "selected",
     featured: false,
@@ -751,7 +751,7 @@ export const projects: Project[] = [
         {
           label: "01 — Product home",
           caption: "Fast repair hero with quote and booking CTA.",
-          image: "/projects/smart-appliances-1-hero.png",
+          image: "/projects/smart-appliances-card.png",
         },
         {
           label: "02 — Core workflow",
@@ -946,7 +946,7 @@ export const practices = [
   {
     title: "AI",
     description: "Models, agents and retrieval wired to the decisions operators actually make.",
-    href: "/portfolio/#ai-in-action",
+    href: "/portfolio/#stories",
   },
   {
     title: "Interface",
@@ -956,7 +956,7 @@ export const practices = [
   {
     title: "Data & workflow",
     description: "APIs, evidence trails and process steps designed as one product surface.",
-    href: "/portfolio/#ai-in-action",
+    href: "/portfolio/#work",
   },
 ];
 
@@ -980,23 +980,5 @@ export const processSteps = [
     step: "04",
     title: "Deploy",
     description: "Launch, measure, and refine with real operators in the loop.",
-  },
-];
-
-export const proofPoints = [
-  {
-    step: "01",
-    value: "10 deployed products",
-    label: "From working MVPs to complete platforms",
-  },
-  {
-    step: "02",
-    value: "AI → Interface → API → Cloud",
-    label: "End-to-end product engineering",
-  },
-  {
-    step: "03",
-    value: "Enterprise · Healthcare · Commerce",
-    label: "Built around real operational workflows",
   },
 ];
