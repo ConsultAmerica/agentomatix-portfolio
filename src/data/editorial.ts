@@ -9,8 +9,8 @@ export type EditorialAsset = {
 /** Featured work — sanitized product interfaces. */
 export const topStoryImages: Record<string, EditorialAsset> = {
   "data-agent": {
-    src: "/projects/data-agent-extract-ui.jpg",
-    alt: "Data Agent application — sample services agreement with extracted information panel",
+    src: "/projects/data-agent-hero.png",
+    alt: "Data Agent — document intelligence with structured extraction and confidence scores",
     kind: "product",
   },
   "mediguide-ai": {

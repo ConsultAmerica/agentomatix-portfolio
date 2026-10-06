@@ -93,8 +93,8 @@ export default function PortfolioPage() {
               <div className="px-2 pb-2 sm:px-3 sm:pb-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/projects/data-agent-extract-ui.jpg"
-                  alt="Data Agent application — sample services agreement with extracted information panel"
+                  src="/projects/data-agent-hero.png"
+                  alt="Data Agent — document intelligence with structured extraction and confidence scores"
                   className="h-auto w-full rounded-[8px] object-contain object-top"
                 />
               </div>

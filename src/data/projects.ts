@@ -68,7 +68,7 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "Python", "FastAPI", "PostgreSQL", "RAG"],
     disciplines: ["Enterprise AI", "Document Intelligence", "Engineering"],
     liveUrl: "https://data-agent-ca.vercel.app/",
-    image: "/projects/data-agent-extract-ui.jpg",
+    image: "/projects/data-agent-hero.png",
     imageFit: "contain",
     workflow: ["Extract", "Structure", "Verify", "Review"],
     status: "live",
@@ -120,22 +120,28 @@ export const projects: Project[] = [
         "Enterprise teams can extract, search, compare, and review document intelligence with source-level confidence — and a workflow built for auditability, not just answers.",
       screenshots: [
         {
-          label: "01 — EXTRACT",
+          label: "01 — PRODUCT",
+          caption:
+            "From upload to verified repository — platform capabilities at a glance.",
+          image: "/projects/data-agent-product.png",
+        },
+        {
+          label: "02 — EXTRACT",
           caption: "Turn complex documents into structured, usable information.",
           image: "/projects/data-agent-extract-ui.jpg",
         },
         {
-          label: "02 — VERIFY",
+          label: "03 — VERIFY",
           caption: "Validate extracted information against its source evidence.",
           image: "/projects/data-agent-verify.jpg",
         },
         {
-          label: "03 — REVIEW",
+          label: "04 — REVIEW",
           caption: "Review structured results before approval or downstream use.",
           image: "/projects/data-agent-anon.jpg",
         },
         {
-          label: "04 — REGULATORY INTELLIGENCE",
+          label: "05 — REGULATORY INTELLIGENCE",
           caption:
             "Turn complex regulatory content into searchable structured records.",
           image: "/projects/data-agent-far.jpg",
