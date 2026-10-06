@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -37,23 +36,11 @@ export default function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
-        <Link href="/portfolio/" className="group flex min-w-0 items-center gap-3">
-          <Image
-            src="/consult-america-logo.png"
-            alt="Consult America"
-            width={36}
-            height={36}
-            className="h-9 w-9 object-contain"
-            priority
-          />
-          <span className="min-w-0">
-            <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-              Consult America
-            </span>
-            <span className="block truncate text-sm font-semibold tracking-tight text-foreground">
-              Agentomatix
-            </span>
-          </span>
+        <Link
+          href="/portfolio/"
+          className="min-w-0 text-[22px] font-semibold tracking-tight text-foreground sm:text-[26px] lg:text-[28px]"
+        >
+          Agentomatix
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">

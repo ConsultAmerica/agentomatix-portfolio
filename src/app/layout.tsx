@@ -16,28 +16,28 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "Agentomatix | Digital Product Studio — Consult America",
+  title: "Agentomatix | Digital Product Studio",
   description:
     "Agentomatix designs and builds intelligent digital products — AI applications, enterprise platforms and automation systems for real business problems.",
   openGraph: {
-    title: "Agentomatix | Digital Product Studio — Consult America",
+    title: "Agentomatix | Digital Product Studio",
     description:
       "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
     type: "website",
-    url: "https://agentomatix-portfolio.pages.dev/portfolio/",
+    url: "https://agentomatic-portfolio.vercel.app/portfolio/",
     siteName: "Agentomatix",
     images: [
       {
-        url: "https://agentomatix-portfolio.pages.dev/consult-america-logo.png",
-        width: 512,
-        height: 512,
-        alt: "Consult America logo",
+        url: "https://agentomatic-portfolio.vercel.app/agentomatix-mark.svg",
+        width: 64,
+        height: 64,
+        alt: "Agentomatix",
       },
     ],
   },
   icons: {
-    icon: "/consult-america-logo.png",
-    apple: "/consult-america-logo.png",
+    icon: "/agentomatix-mark.svg",
+    apple: "/agentomatix-mark.svg",
   },
 };
 

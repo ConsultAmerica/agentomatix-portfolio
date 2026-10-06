@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { CaseHeroVisual, ProductGallery } from "@/components/ProjectMedia";
 import { getProjectMedia } from "@/data/projectMedia";
 import { getProject, projects } from "@/data/projects";
@@ -282,14 +283,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </div>
       </article>
 
-      <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm font-semibold tracking-tight text-foreground">
-            Consult America / Agentomatix
-          </p>
-          <p className="text-sm text-muted">© {new Date().getFullYear()}</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

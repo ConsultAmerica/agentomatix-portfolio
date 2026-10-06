@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SelectedProducts } from "@/components/SelectedProducts";
 import { MoreWorkTable } from "@/components/MoreWorkTable";
 import {
@@ -11,11 +12,11 @@ import {
 } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Agentomatix | Digital Product Studio — Consult America",
+  title: "Agentomatix | Digital Product Studio",
   description:
     "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
   openGraph: {
-    title: "Agentomatix | Digital Product Studio — Consult America",
+    title: "Agentomatix | Digital Product Studio",
     description:
       "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
     type: "website",
@@ -39,10 +40,7 @@ export default function PortfolioPage() {
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 pb-12 lg:grid-cols-12 lg:gap-8 lg:pb-16">
           <div className="lg:col-span-7">
-            <p className="reveal-up meta-label text-muted">Consult America</p>
-            <p className="reveal-up mt-1.5 text-sm font-medium tracking-wide text-accent">
-              Agentomatix · Digital Product Studio
-            </p>
+            <p className="reveal-up meta-label text-muted">Digital Product Studio</p>
 
             <h1 className="reveal-up display-heading mt-5 max-w-3xl text-[2.15rem] text-foreground sm:text-[2.75rem] lg:text-[3.4rem]">
               We design and build{" "}
@@ -150,14 +148,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm font-semibold tracking-tight text-foreground">
-            Consult America / Agentomatix
-          </p>
-          <p className="text-sm text-muted">© {new Date().getFullYear()}</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

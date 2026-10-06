@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Consult America navy / dark-blue identity (not pure black) */
+  /* Agentomatix navy / dark-blue identity (not pure black) */
   --background: #0c1a32;
   --foreground: #e8eefc;
   --muted: #94a3b8;
