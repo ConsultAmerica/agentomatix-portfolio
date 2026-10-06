@@ -1,15 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #070d1a;
+  /* Consult America navy / dark-blue identity (not pure black) */
+  --background: #0c1a32;
   --foreground: #e8eefc;
+  --muted: #94a3b8;
+  --border: rgba(148, 180, 220, 0.14);
+  --surface: #122844;
+  --surface-soft: #183456;
+  --accent: #22d3ee;
+  --accent-soft: rgba(34, 211, 238, 0.14);
+
+  /* Controlled section bands — navy family, different depth */
+  --band-proof: #102040;
+  --band-ai: #132848;
+  --band-notes: #0f203c;
+  --band-mediguide: #0e2438;
+  --band-dark: #0a1730;
+  --band-dark-fg: #e8eefc;
+  --band-dark-muted: #8ba0b8;
+  /* Light bands for Infosys-style editorial contrast */
+  --band-light: #eef3f8;
+  --band-light-fg: #0f1f3a;
+  --band-light-muted: #5b6f88;
+  --band-light-card: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-band-proof: var(--band-proof);
+  --color-band-ai: var(--band-ai);
+  --color-band-notes: var(--band-notes);
+  --color-band-mediguide: var(--band-mediguide);
+  --color-band-dark: var(--band-dark);
+  --color-band-dark-fg: var(--band-dark-fg);
+  --color-band-dark-muted: var(--band-dark-muted);
+  --color-band-light: var(--band-light);
+  --color-band-light-fg: var(--band-light-fg);
+  --color-band-light-muted: var(--band-light-muted);
+  --color-band-light-card: var(--band-light-card);
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-newsreader);
 }
 
 html {
@@ -19,8 +57,10 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
+  font-size: 17px;
+  line-height: 1.55;
 }
 
 ::selection {
@@ -28,9 +68,94 @@ body {
   color: #fff;
 }
 
-/* Prefer hover lift only on devices that support hover */
+.display-heading {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.section-heading {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.meta-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.editorial-italic {
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #22d3ee, #3b82f6);
+  color: #0c1a32;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.product-image-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #122844;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+}
+
+.product-image-frame img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-image-frame--cover {
+  overflow: hidden;
+  padding: 0;
+}
+
+.product-image-frame--cover img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  animation: reveal-up 0.7s ease-out both;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .hover-lift:hover {
-    transform: translateY(-0.375rem);
+  .project-media:hover img {
+    transform: scale(1.02);
+  }
+
+  .link-arrow:hover .arrow {
+    transform: translateX(4px);
   }
 }

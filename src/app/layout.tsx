@@ -1,28 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Agentomatix AI Portfolio | Consult America",
+  title: "Agentomatix | Digital Product Studio — Consult America",
   description:
-    "AI web applications, SaaS dashboards, healthcare AI tools, e-commerce platforms, writing assistants, resume analyzers, booking systems, and business applications by Consult America.",
+    "Agentomatix designs and builds intelligent digital products — AI applications, enterprise platforms and automation systems for real business problems.",
   openGraph: {
-    title: "Agentomatix AI Portfolio | Consult America",
+    title: "Agentomatix | Digital Product Studio — Consult America",
     description:
-      "AI web applications, SaaS dashboards, healthcare AI tools, e-commerce platforms, writing assistants, resume analyzers, booking systems, and business applications by Consult America.",
+      "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
     type: "website",
     url: "https://agentomatix-portfolio.pages.dev/portfolio/",
-    siteName: "Agentomatix AI Portfolio",
+    siteName: "Agentomatix",
     images: [
       {
         url: "https://agentomatix-portfolio.pages.dev/consult-america-logo.png",
@@ -46,9 +49,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${instrumentSans.variable} ${newsreader.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#070d1a] text-slate-100">{children}</body>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }
