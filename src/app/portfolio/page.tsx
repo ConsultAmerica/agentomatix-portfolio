@@ -78,13 +78,13 @@ export default function PortfolioPage() {
                   <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
                     Featured product
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-white">Data Agent</p>
+                  <p className="mt-1 text-sm font-semibold text-white">MediGuide</p>
                   <p className="mt-0.5 text-[12px] text-slate-400">
-                    Document intelligence · Extraction · Verification
+                    Healthcare AI · Document guidance · Traceability
                   </p>
                 </div>
                 <Link
-                  href="/portfolio/data-agent/"
+                  href="/portfolio/mediguide-ai/"
                   className="shrink-0 text-xs font-medium text-cyan-300 hover:text-cyan-200"
                 >
                   Case study →
@@ -93,8 +93,8 @@ export default function PortfolioPage() {
               <div className="px-2 pb-2 sm:px-3 sm:pb-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/projects/data-agent-hero.png"
-                  alt="Data Agent — document intelligence with structured extraction and confidence scores"
+                  src="/projects/mediguide-full.jpg"
+                  alt="MediGuide — health document guidance product interface"
                   className="h-auto w-full rounded-[8px] object-contain object-top"
                 />
               </div>
