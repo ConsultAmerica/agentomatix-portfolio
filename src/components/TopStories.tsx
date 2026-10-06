@@ -64,7 +64,6 @@ export default function TopStories({ projects }: { projects: Project[] }) {
                   alt={visual.alt}
                   kind="product"
                   stage="dark"
-                  fit="cover"
                 />
               ) : null}
             </div>
@@ -117,7 +116,7 @@ export default function TopStories({ projects }: { projects: Project[] }) {
                     <img
                       src={thumb.src}
                       alt=""
-                      className="h-full w-full object-cover object-top"
+                      className="h-full w-full object-contain object-center p-0.5"
                     />
                   ) : null}
                 </div>

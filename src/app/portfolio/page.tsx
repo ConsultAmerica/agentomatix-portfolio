@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
-import TopStories from "@/components/TopStories";
-import {
-  AiInAction,
-  CraftingProducts,
-  MoreWorkTable,
-  SelectedWorkFeature,
-} from "@/components/SelectedWork";
+import { AiInAction, CraftingProducts } from "@/components/SelectedWork";
+import { SelectedProducts } from "@/components/SelectedProducts";
+import { MoreWorkTable } from "@/components/MoreWorkTable";
 import { notes } from "@/data/notes";
 import {
   getAiInActionProjects,
   getMoreWorkProjects,
-  getSelectedWork,
-  getTopStories,
+  getSelectedProducts,
   heroCapabilities,
   processSteps,
   proofPoints,
@@ -34,8 +29,7 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  const topStories = getTopStories();
-  const [selectedFeature] = getSelectedWork();
+  const selectedProducts = getSelectedProducts();
   const aiInAction = getAiInActionProjects();
   const moreWork = getMoreWorkProjects();
   const homepageNotes = [
@@ -47,7 +41,7 @@ export default function PortfolioPage() {
     <main id="top" className="relative bg-background text-foreground">
       <SiteHeader />
 
-      <section className="relative overflow-hidden px-5 pt-24 sm:px-8 sm:pt-24 lg:px-10 lg:pt-28">
+      <section className="relative overflow-x-clip px-5 pt-24 sm:px-8 sm:pt-24 lg:px-10 lg:pt-28">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(37,99,235,0.18),_transparent_55%),radial-gradient(ellipse_at_bottom_left,_rgba(14,165,233,0.1),_transparent_50%)]"
@@ -59,7 +53,7 @@ export default function PortfolioPage() {
               Agentomatix · Digital Product Studio
             </p>
 
-            <h1 className="reveal-up display-heading mt-5 max-w-3xl text-[2.35rem] text-foreground sm:text-5xl lg:text-[3.75rem]">
+            <h1 className="reveal-up display-heading mt-5 max-w-3xl text-[2.15rem] text-foreground sm:text-[2.75rem] lg:text-[3.4rem]">
               We design and build{" "}
               <span className="editorial-italic">intelligent</span> digital products.
             </h1>
@@ -89,36 +83,32 @@ export default function PortfolioPage() {
           </div>
 
           <div className="reveal-up lg:col-span-5">
-            <div className="overflow-hidden rounded-[12px] border border-white/10 bg-[#122844] p-2">
-              <div className="mb-2 flex items-center justify-between px-2 pt-1">
-                <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400">
-                  Featured case
-                </p>
+            <div className="overflow-hidden rounded-[12px] border border-white/10 bg-[#0c1a32]">
+              <div className="flex items-start justify-between gap-3 px-4 pt-4 pb-2">
+                <div>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
+                    Featured product
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-white">Data Agent</p>
+                  <p className="mt-0.5 text-[12px] text-slate-400">
+                    Document intelligence · Extraction · Verification
+                  </p>
+                </div>
                 <Link
                   href="/portfolio/data-agent/"
-                  className="text-xs font-medium text-cyan-300 hover:text-cyan-200"
+                  className="shrink-0 text-xs font-medium text-cyan-300 hover:text-cyan-200"
                 >
                   Case study →
                 </Link>
               </div>
-              <div className="overflow-hidden rounded-[10px] border border-white/10 bg-[#0c1a32]">
-                <div className="flex items-center gap-1.5 border-b border-white/10 bg-[#122844] px-2.5 py-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#ff5f57]" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
-                </div>
-                <div className="aspect-[16/10]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/projects/data-agent-clean.jpg"
-                    alt="Data Agent sample product interface"
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
+              <div className="px-2 pb-2 sm:px-3 sm:pb-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/projects/data-agent-extract-ui.jpg"
+                  alt="Data Agent application — sample services agreement with extracted information panel"
+                  className="h-auto w-full rounded-[8px] object-contain object-top"
+                />
               </div>
-              <p className="px-2 py-2.5 text-sm font-medium text-white">
-                Data Agent · Document intelligence
-              </p>
             </div>
           </div>
         </div>
@@ -143,9 +133,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <TopStories projects={topStories} />
-
-      {selectedFeature ? <SelectedWorkFeature project={selectedFeature} index={1} /> : null}
+      <SelectedProducts projects={selectedProducts} />
 
       <CraftingProducts />
 
@@ -180,26 +168,22 @@ export default function PortfolioPage() {
 
       <section
         id="notes"
-        className="scroll-mt-24 border-t border-black/5 bg-white px-5 py-12 text-band-light-fg sm:px-8 sm:py-14 lg:px-10 lg:py-16"
+        className="scroll-mt-24 border-t border-border bg-band-dark px-5 py-12 text-band-dark-fg sm:px-8 sm:py-14 lg:px-10"
       >
         <div className="mx-auto max-w-6xl">
-          <p className="meta-label text-band-light-muted">Notes</p>
+          <p className="meta-label text-band-dark-muted">Notes</p>
           <h2 className="section-heading mt-2 text-3xl sm:text-4xl">Thinking from the work</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {homepageNotes.map((note) => (
               <Link
                 key={note.slug}
                 href={`/notes/${note.slug}/`}
-                className="group flex flex-col rounded-[12px] border border-black/8 bg-band-light p-5 transition-colors hover:border-black/15 sm:p-6"
+                className="group rounded-[12px] border border-white/10 bg-[#122844] p-5 transition-colors hover:border-cyan-400/30"
               >
-                <p className="text-[13px] text-band-light-muted">{note.readTime}</p>
-                <h3 className="mt-2 text-lg font-semibold tracking-tight sm:text-xl">
-                  {note.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-band-light-muted">
-                  {note.excerpt}
-                </p>
-                <span className="link-arrow mt-4 inline-flex items-center gap-2 text-sm font-medium">
+                <p className="text-[12px] tracking-wide text-band-dark-muted">{note.readTime}</p>
+                <h3 className="mt-2 text-xl font-semibold tracking-tight">{note.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-band-dark-muted">{note.excerpt}</p>
+                <span className="link-arrow mt-4 inline-flex items-center gap-2 text-sm font-medium text-cyan-300">
                   Read note
                   <span className="arrow transition-transform duration-300" aria-hidden="true">
                     →
@@ -213,37 +197,26 @@ export default function PortfolioPage() {
 
       <section
         id="contact"
-        className="scroll-mt-24 border-t border-border bg-band-dark px-5 py-14 text-band-dark-fg sm:px-8 sm:py-16 lg:px-10 lg:py-20"
+        className="scroll-mt-24 border-t border-black/5 bg-band-light px-5 py-14 text-band-light-fg sm:px-8 sm:py-16 lg:px-10"
       >
         <div className="mx-auto max-w-6xl">
+          <p className="meta-label text-band-light-muted">Contact</p>
           <h2 className="display-heading max-w-3xl text-3xl sm:text-5xl">
-            Have a difficult product problem?
+            Tell us about the product you need to ship.
           </h2>
-          <p className="mt-4 max-w-lg text-base text-band-dark-muted sm:text-lg">
-            Let&rsquo;s build something{" "}
-            <span className="editorial-italic text-band-dark-fg">useful</span>.
+          <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-band-light-muted">
+            Whether it&apos;s document intelligence, healthcare tooling or operations systems —
+            we&apos;ll help you design and build it.
           </p>
-          <a
-            href="#stories"
-            className="link-arrow mt-8 inline-flex items-center gap-2 text-base font-medium"
-          >
-            Explore our work
-            <span className="arrow transition-transform duration-300" aria-hidden="true">
-              →
-            </span>
-          </a>
         </div>
       </section>
 
-      <footer className="border-t border-black/5 bg-band-light px-5 py-8 text-band-light-fg sm:px-8 lg:px-10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold tracking-tight">
-              Consult America / Agentomatix
-            </p>
-            <p className="mt-1 text-sm text-band-light-muted">Hagerstown, Maryland</p>
-          </div>
-          <p className="text-sm text-band-light-muted">© {new Date().getFullYear()}</p>
+      <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-semibold tracking-tight text-foreground">
+            Consult America / Agentomatix
+          </p>
+          <p className="text-sm text-muted">© {new Date().getFullYear()}</p>
         </div>
       </footer>
     </main>

@@ -36,6 +36,8 @@ export type Project = {
   workflow?: string[];
   status?: "live" | "in-progress";
   tier: ProjectTier;
+  /** Homepage Selected Products (true) vs More Shipped Work (false). */
+  featured: boolean;
   layout: ProjectLayout;
   order: number;
   caseStudy?: {
@@ -56,34 +58,35 @@ export const projects: Project[] = [
   {
     slug: "data-agent",
     name: "Data Agent",
-    eyebrow: "Enterprise Document Intelligence",
-    headline: "Turning complex documents into structured, verifiable data.",
+    eyebrow: "Enterprise document intelligence",
+    headline: "Turning complex documents into structured, verifiable information.",
     summary:
-      "Built an enterprise document-intelligence workflow that extracts structured information from contracts and regulatory documents while preserving traceability to source evidence.",
+      "Built an enterprise document-intelligence workflow that extracts structured information from complex business documents while preserving traceability to source evidence.",
     challenge: "Manual document review is slow and difficult to audit.",
     approach:
       "Structured extraction + deterministic rules + AI-assisted interpretation.",
     builtWith: ["Next.js", "Python", "FastAPI", "PostgreSQL", "RAG"],
     disciplines: ["Enterprise AI", "Document Intelligence", "Engineering"],
     liveUrl: "https://data-agent-ca.vercel.app/",
-    image: "/projects/data-agent-clean.jpg",
-    imageFit: "cover",
-    workflow: ["Extract", "Structure", "Verify", "Search", "Compare"],
+    image: "/projects/data-agent-extract-ui.jpg",
+    imageFit: "contain",
+    workflow: ["Extract", "Structure", "Verify", "Review"],
     status: "live",
     tier: "flagship",
+    featured: true,
     layout: "landscape",
     order: 1,
     caseStudy: {
       overview:
-        "Data Agent helps enterprise teams turn contracts, FAR documents, and procurement records into structured, source-verified data — without losing the audit trail that makes the output trustworthy.",
+        "Data Agent helps enterprise teams turn complex business documents into structured, source-verified information — without losing the audit trail that makes the output trustworthy.",
       sections: [
         {
           title: "The problem",
-          body: "Contracts, FAR documents and procurement records arrive in inconsistent formats. Legal and procurement teams need extraction they can trust — and evidence they can show when something looks wrong.",
+          body: "Business documents arrive in inconsistent formats. Legal and operations teams need extraction they can trust — and evidence they can show when something looks wrong.",
         },
         {
           title: "What we discovered",
-          body: "Letting an LLM freely infer document type created cascading failures. A misclassified document selected the wrong extraction schema, wrong labels, and wrong Oracle transformation rules.",
+          body: "Letting an LLM freely infer document type created cascading failures. A misclassified document selected the wrong extraction schema, wrong labels, and wrong transformation rules.",
         },
         {
           title: "System architecture",
@@ -105,37 +108,37 @@ export const projects: Project[] = [
       decisions: [
         {
           problem:
-            "Contracts, FAR documents and procurement records arrive in inconsistent formats.",
+            "Business documents arrive in inconsistent formats and need trustworthy extraction.",
           decision:
             "Instead of allowing an LLM to infer the document type freely, we introduced deterministic document profiles.",
-          why: "Classification errors downstream affected extraction schemas and Oracle transformations.",
+          why: "Classification errors downstream affected extraction schemas and transformation rules.",
           result:
             "Document type now determines the extraction experience, labels, tabs and transformation rules.",
         },
       ],
       outcome:
-        "Enterprise teams can extract, search, compare, and review contract intelligence with source-level confidence — and a workflow built for auditability, not just answers.",
+        "Enterprise teams can extract, search, compare, and review document intelligence with source-level confidence — and a workflow built for auditability, not just answers.",
       screenshots: [
         {
-          label: "01 — Product",
-          caption: "Document intelligence with source-verified extraction and confidence scoring.",
-          image: "/projects/data-agent-clean.jpg",
+          label: "01 — EXTRACT",
+          caption: "Turn complex documents into structured, usable information.",
+          image: "/projects/data-agent-extract-ui.jpg",
         },
         {
-          label: "02 — Extraction",
-          caption: "Structured fields extracted from complex agreements.",
+          label: "02 — VERIFY",
+          caption: "Validate extracted information against its source evidence.",
+          image: "/projects/data-agent-verify.jpg",
         },
         {
-          label: "03 — Source evidence",
-          caption: "Field-to-source relationship for verifiable review.",
+          label: "03 — REVIEW",
+          caption: "Review structured results before approval or downstream use.",
+          image: "/projects/data-agent-anon.jpg",
         },
         {
-          label: "04 — FAR intelligence",
-          caption: "Specialized regulatory extraction and clause comparison.",
-        },
-        {
-          label: "05 — Transformation",
-          caption: "Canonical data prepared for downstream Oracle output.",
+          label: "04 — REGULATORY INTELLIGENCE",
+          caption:
+            "Turn complex regulatory content into searchable structured records.",
+          image: "/projects/data-agent-far.jpg",
         },
       ],
     },
@@ -154,11 +157,12 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "OpenAI API", "Tailwind CSS"],
     disciplines: ["Healthcare", "AI Product", "UX"],
     liveUrl: "https://mediguide-ai-woad.vercel.app/",
-    image: "/projects/mediguide-anon.jpg",
-    imageFit: "cover",
+    image: "/projects/mediguide-full.jpg",
+    imageFit: "contain",
     workflow: ["Understand", "Explain", "Cite", "Know when not to answer"],
     status: "live",
     tier: "featured",
+    featured: true,
     layout: "split",
     order: 2,
     caseStudy: {
@@ -193,14 +197,20 @@ export const projects: Project[] = [
         "A healthcare AI experience that prioritizes clarity, boundaries, and responsible communication.",
       screenshots: [
         {
-          label: "01 — Conversation",
-          caption: "Patient-friendly health conversation interface.",
+          label: "01 — Product",
+          caption: "MediGuide landing experience with demo-safe timeline card.",
+          image: "/projects/mediguide-full.jpg",
+        },
+        {
+          label: "02 — Demo interface",
+          caption: "Placeholder metrics only — no patient information.",
           image: "/projects/mediguide-anon.jpg",
         },
         {
-          label: "02 — Boundaries",
-          caption: "Safety and limitation messaging built into the flow.",
-        },
+          label: "03 — Brand surface",
+          caption: "Healthcare AI product presentation.",
+          image: "/projects/mediguide.png",
+        }
       ],
     },
   },
@@ -218,8 +228,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS", "Cloudflare"],
     disciplines: ["Enterprise", "Web", "Product Design"],
     liveUrl: "https://consultamerica-nu.vercel.app/",
-    image: "/projects/consultamerica.png",
+    image: "/projects/consultamerica-full.png",
+    imageFit: "contain",
     tier: "featured",
+    featured: true,
     layout: "landscape",
     order: 3,
     caseStudy: {
@@ -249,10 +261,15 @@ export const projects: Project[] = [
         "A polished company website positioned for enterprise clients evaluating AI and digital transformation partners.",
       screenshots: [
         {
-          label: "01 — Brand presence",
+          label: "01 — Homepage",
+          caption: "Enterprise consulting brand front door.",
+          image: "/projects/consultamerica-full.png",
+        },
+        {
+          label: "02 — Brand presence",
           caption: "Primary consulting brand experience.",
           image: "/projects/consultamerica.png",
-        },
+        }
       ],
     },
   },
@@ -270,11 +287,12 @@ export const projects: Project[] = [
       "Case intake → Agentforce investigation → FastAPI orchestration → RAG evidence → confidence scoring → human approval.",
     builtWith: ["Salesforce", "Agentforce", "FastAPI", "RAG", "Python"],
     disciplines: ["Enterprise AI", "Agents", "Operations"],
-    image: "/projects/agentic-anon.jpg",
-    imageFit: "cover",
+    image: "/projects/agentic-full.jpg",
+    imageFit: "contain",
     workflow: ["Case", "Agentforce", "FastAPI", "RAG", "Evidence", "Approval"],
     status: "in-progress",
     tier: "featured",
+    featured: false,
     layout: "split",
     order: 3,
     caseStudy: {
@@ -309,16 +327,27 @@ export const projects: Project[] = [
         "A controlled agentic operations pattern built for Salesforce-centered enterprises that need speed without surrendering oversight.",
       screenshots: [
         {
-          label: "01 — Workflow",
-          caption: "Case → Agentforce → FastAPI → RAG → evidence → approval.",
+          label: "01 — Investigation",
+          caption: "Case investigation with AI summary, evidence and approval.",
+          image: "/projects/agentic-full.jpg",
         },
+        {
+          label: "02 — Operations UI",
+          caption: "Agentic operations dashboard for case handling.",
+          image: "/projects/agentic-ops-ui.jpg",
+        },
+        {
+          label: "03 — Demo workspace",
+          caption: "Sample case flow with generic placeholders only.",
+          image: "/projects/agentic-anon.jpg",
+        }
       ],
     },
   },
   {
     slug: "importnest-ai-agent",
     name: "ImportNest",
-    eyebrow: "Commerce AI",
+    eyebrow: "Commerce intelligence",
     headline: "Comparing real purchase cost across approved retailers.",
     summary:
       "Shopping comparison that searches approved retailers and surfaces Total Known Cost — item, shipping, and fees — before a shopper commits.",
@@ -328,8 +357,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "TypeScript", "Tailwind CSS"],
     disciplines: ["AI Product", "Commerce", "Engineering"],
     liveUrl: "https://importnest.vercel.app/",
-    image: "/projects/importnest.png",
+    image: "/projects/importnest-hero.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 4,
     caseStudy: {
@@ -344,6 +375,10 @@ export const projects: Project[] = [
           title: "Approach",
           body: "Natural-language search across approved retailers, with Total Known Cost as the primary comparison signal.",
         },
+        {
+          title: "Key features",
+          body: "Product/model/UPC search, approved-retailer filtering, Total Known Cost (item + shipping + fees), price alerts, and labeled sponsored results.",
+        },
       ],
       decisions: [
         {
@@ -357,9 +392,19 @@ export const projects: Project[] = [
         "A consumer commerce product focused on transparent multi-retailer discovery.",
       screenshots: [
         {
-          label: "01 — Comparison",
-          caption: "Offer comparison with Total Known Cost.",
-          image: "/projects/importnest.png",
+          label: "01 — Product home",
+          caption: "Full homepage overview — search once, compare approved offers.",
+          image: "/projects/importnest-1-hero.png",
+        },
+        {
+          label: "02 — Core workflow",
+          caption: "Compare path with filters and Total Known Cost messaging.",
+          image: "/projects/importnest-2-compare.png",
+        },
+        {
+          label: "03 — Detail / result",
+          caption: "Shop-by-category discovery with department cards.",
+          image: "/projects/importnest-3-categories.png",
         },
       ],
     },
@@ -367,7 +412,7 @@ export const projects: Project[] = [
   {
     slug: "joblens",
     name: "JobLens",
-    eyebrow: "Career AI",
+    eyebrow: "Career intelligence",
     headline: "Helping job seekers align resumes with real openings.",
     summary:
       "Resume analysis, ATS keyword feedback, job matching, and cover-letter support in one career workflow.",
@@ -377,8 +422,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "OpenAI API", "Tailwind CSS"],
     disciplines: ["AI Product", "Product Design", "Engineering"],
     liveUrl: "https://joblens-seven.vercel.app/",
-    image: screenshot("https://joblens-seven.vercel.app/"),
+    image: "/projects/joblens.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 5,
     caseStudy: {
@@ -393,6 +440,10 @@ export const projects: Project[] = [
           title: "Approach",
           body: "Analyze resumes against job descriptions, surface keyword gaps, and support cover-letter generation.",
         },
+        {
+          title: "Key features",
+          body: "Resume upload and analysis, ATS keyword gaps, job matching, cover-letter support, and application tracking in one career workspace.",
+        },
       ],
       decisions: [
         {
@@ -405,17 +456,22 @@ export const projects: Project[] = [
       outcome: "A practical career AI product for seekers and coaching workflows.",
       screenshots: [
         {
-          label: "01 — Analysis",
-          caption: "Resume and ATS feedback experience.",
-          image: screenshot("https://joblens-seven.vercel.app/"),
+          label: "01 — Home",
+          caption: "Career AI product entry for resume and job fit.",
+          image: "/projects/joblens-1-hero.png",
         },
+        {
+          label: "02 — Workspace",
+          caption: "Resume analysis and ATS feedback surface.",
+          image: "/projects/joblens-2-workspace.png",
+        }
       ],
     },
   },
   {
     slug: "smartwrite-ai",
     name: "SmartWrite",
-    eyebrow: "Writing",
+    eyebrow: "AI writing workspace",
     headline: "Faster writing quality across everyday work.",
     summary:
       "Grammar, rewriting, tone, and readability support for email, resumes, academic, and business content.",
@@ -425,9 +481,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "OpenAI API", "Tailwind CSS"],
     disciplines: ["AI Product", "SaaS", "Engineering"],
     liveUrl: "https://grammarly-app-seven.vercel.app/",
-    image: "/projects/smartwrite.png",
-    imageFit: "cover",
+    image: "/projects/smartwrite-1-editor.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 6,
     caseStudy: {
@@ -437,6 +494,10 @@ export const projects: Project[] = [
         {
           title: "The problem",
           body: "Writing quality tools need to work across email, resumes, and business content — not just one format.",
+        },
+        {
+          title: "Key features",
+          body: "Writing modes (General, Email, Resume, Academic, Healthcare, Business), one-click rewrite actions (Shorter, Clearer, More Formal), issues panel for grammar and tone, and save/check workflows for everyday documents.",
         },
       ],
       decisions: [
@@ -451,16 +512,26 @@ export const projects: Project[] = [
       screenshots: [
         {
           label: "01 — Editor",
-          caption: "Writing assistant interface.",
-          image: "/projects/smartwrite.png",
+          caption: "Writing workspace with rewrite actions and issues panel.",
+          image: "/projects/smartwrite-1-editor.png",
         },
+        {
+          label: "02 — Writing modes",
+          caption: "Domain modes for email, resume, academic and business.",
+          image: "/projects/smartwrite-2-modes.png",
+        },
+        {
+          label: "03 — Check flow",
+          caption: "Grammar and tone review surface.",
+          image: "/projects/smartwrite-3-check.png",
+        }
       ],
     },
   },
   {
     slug: "bosiano",
     name: "Bosiano",
-    eyebrow: "Commerce",
+    eyebrow: "Fashion commerce",
     headline: "A fashion storefront with heritage-inspired luxury branding.",
     summary:
       "Italian heritage-inspired e-commerce with product presentation, marketplace-style browsing, and responsive shopping pages.",
@@ -471,8 +542,9 @@ export const projects: Project[] = [
     disciplines: ["E-Commerce", "Brand", "Product Design"],
     liveUrl: "https://bosiano.vercel.app/",
     image: "/projects/bosiano.png",
-    imageFit: "cover",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 7,
     caseStudy: {
@@ -495,17 +567,27 @@ export const projects: Project[] = [
       outcome: "A modern, conversion-ready fashion storefront.",
       screenshots: [
         {
-          label: "01 — Storefront",
-          caption: "Primary shopping experience.",
-          image: "/projects/bosiano.png",
+          label: "01 — Campaign",
+          caption: "Autumn campaign hero and shopping entry.",
+          image: "/projects/bosiano-1-hero.png",
         },
+        {
+          label: "02 — New arrivals",
+          caption: "Seasonal product grid and designer marketplace.",
+          image: "/projects/bosiano-2-arrivals.png",
+        },
+        {
+          label: "03 — Brand edit",
+          caption: "Bosiano collection and crest storytelling.",
+          image: "/projects/bosiano-3-edit.png",
+        }
       ],
     },
   },
   {
     slug: "romeah",
     name: "Romeah",
-    eyebrow: "Commerce",
+    eyebrow: "Editorial commerce",
     headline: "Quiet luxury fashion — refined product stories and effortless shopping.",
     summary:
       "A quiet-luxury e-commerce experience for clothing, handbags, shoes, jewelry and travel — built around editorial campaigns, product clarity and conversion-ready shopping flows.",
@@ -516,9 +598,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS"],
     disciplines: ["E-Commerce", "Brand", "Product Design"],
     liveUrl: "https://romeah.vercel.app/",
-    image: "/projects/romeah.png",
-    imageFit: "cover",
+    image: "/projects/romeah-hero.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 8,
     caseStudy: {
@@ -532,6 +615,10 @@ export const projects: Project[] = [
         {
           title: "The approach",
           body: "We led with a campaign hero and seasonal edits, then grounded the experience in product grids, category navigation and focused merchandising blocks for bags, shoes, jewelry and travel.",
+        },
+        {
+          title: "Key features",
+          body: "Campaign storytelling, new arrivals, bags-of-the-season, shoes edit, jewelry focus, travel essentials, shop-the-look, and newsletter capture.",
         },
       ],
       decisions: [
@@ -547,9 +634,19 @@ export const projects: Project[] = [
         "A modern quiet-luxury commerce experience with campaign storytelling and conversion-ready product browsing.",
       screenshots: [
         {
-          label: "01 — Storefront",
-          caption: "Fall campaign hero and new arrivals.",
-          image: "/projects/romeah.png",
+          label: "01 — Product home",
+          caption: "Fall campaign hero with editorial story and CTAs.",
+          image: "/projects/romeah-1-hero.png",
+        },
+        {
+          label: "02 — Core workflow",
+          caption: "Category merchandising with product cards and filters.",
+          image: "/projects/romeah-3-bags.png",
+        },
+        {
+          label: "03 — Detail / result",
+          caption: "Clothing category grid and product presentation.",
+          image: "/projects/romeah-2-arrivals.png",
         },
       ],
     },
@@ -557,7 +654,7 @@ export const projects: Project[] = [
   {
     slug: "appointease",
     name: "AppointEase",
-    eyebrow: "Scheduling",
+    eyebrow: "Appointment scheduling",
     headline: "Simple appointment booking for service businesses.",
     summary:
       "Service selection, scheduling, customer details, and confirmation — a practical booking MVP for local providers.",
@@ -567,8 +664,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS"],
     disciplines: ["Product", "Scheduling", "Engineering"],
     liveUrl: "https://appointease-psi.vercel.app/",
-    image: screenshot("https://appointease-psi.vercel.app/"),
+    image: "/projects/appointease-1-hero.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "phone",
     order: 9,
     caseStudy: {
@@ -578,6 +677,10 @@ export const projects: Project[] = [
         {
           title: "The problem",
           body: "Many booking tools overwhelm small businesses with features they do not need on day one.",
+        },
+        {
+          title: "Key features",
+          body: "Service selection, available time slots, customer details capture, and a clear confirmation state — a linear booking path designed for completion rate.",
         },
       ],
       decisions: [
@@ -591,9 +694,14 @@ export const projects: Project[] = [
       outcome: "A practical scheduling MVP for appointment-based businesses.",
       screenshots: [
         {
-          label: "01 — Booking",
-          caption: "Appointment scheduling flow.",
-          image: screenshot("https://appointease-psi.vercel.app/"),
+          label: "01 — Booking home",
+          caption: "Appointment booking entry and clinic scheduling overview.",
+          image: "/projects/appointease-1-hero.png",
+        },
+        {
+          label: "02 — Scheduling flow",
+          caption: "Patient booking path — schedule an appointment without an account.",
+          image: "/projects/appointease-2-flow.png",
         },
       ],
     },
@@ -601,7 +709,7 @@ export const projects: Project[] = [
   {
     slug: "smart-appliances",
     name: "Smart Appliances",
-    eyebrow: "Services",
+    eyebrow: "Home-service booking",
     headline: "Home-service booking for appliance, HVAC, and repair.",
     summary:
       "Service discovery and booking request workflows for appliance, HVAC, and home repair companies.",
@@ -611,8 +719,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS"],
     disciplines: ["Services", "Booking", "Web"],
     liveUrl: "https://project-i8icw-ebon.vercel.app/",
-    image: screenshot("https://project-i8icw-ebon.vercel.app/"),
+    image: "/projects/smart-appliances-1-hero.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 10,
     caseStudy: {
@@ -622,6 +732,10 @@ export const projects: Project[] = [
         {
           title: "The problem",
           body: "Customers struggle to find the right service and submit a clear request online.",
+        },
+        {
+          title: "Key features",
+          body: "ZIP-based availability, free quote form, service categories for appliance/HVAC/repair, request tracking, and same-day booking entry points for local households.",
         },
       ],
       decisions: [
@@ -635,9 +749,19 @@ export const projects: Project[] = [
       outcome: "A booking-oriented digital presence for home-service businesses.",
       screenshots: [
         {
-          label: "01 — Services",
-          caption: "Service discovery and booking entry points.",
-          image: screenshot("https://project-i8icw-ebon.vercel.app/"),
+          label: "01 — Product home",
+          caption: "Fast repair hero with quote and booking CTA.",
+          image: "/projects/smart-appliances-1-hero.png",
+        },
+        {
+          label: "02 — Core workflow",
+          caption: "Appliance, HVAC and repair service discovery.",
+          image: "/projects/smart-appliances-2-services.png",
+        },
+        {
+          label: "03 — Detail / result",
+          caption: "Request and availability path for home service.",
+          image: "/projects/smart-appliances-3-booking.png",
         },
       ],
     },
@@ -645,7 +769,7 @@ export const projects: Project[] = [
   {
     slug: "sarco-appliances",
     name: "Sarco",
-    eyebrow: "Local Business",
+    eyebrow: "Appliance commerce",
     headline: "Sales and service presence for an appliance company.",
     summary:
       "Customer-facing website for delivery, installation, repair, and sales information.",
@@ -655,8 +779,10 @@ export const projects: Project[] = [
     builtWith: ["Next.js", "React", "Tailwind CSS"],
     disciplines: ["Business", "Web", "Services"],
     liveUrl: "https://sarco-appliances.vercel.app/",
-    image: screenshot("https://sarco-appliances.vercel.app/"),
+    image: "/projects/sarco-g1-home.png",
+    imageFit: "contain",
     tier: "selected",
+    featured: false,
     layout: "compact",
     order: 11,
     caseStudy: {
@@ -666,6 +792,10 @@ export const projects: Project[] = [
         {
           title: "The problem",
           body: "Local service businesses lose inquiries when their site does not clearly explain offerings.",
+        },
+        {
+          title: "Key features",
+          body: "Sales, delivery, installation and repair sections with clear contact paths for local appliance customers.",
         },
       ],
       decisions: [
@@ -679,9 +809,14 @@ export const projects: Project[] = [
       outcome: "A clear local-business website for appliance sales and service.",
       screenshots: [
         {
-          label: "01 — Site",
-          caption: "Customer-facing business presence.",
-          image: screenshot("https://sarco-appliances.vercel.app/"),
+          label: "01 — Product home",
+          caption: "Local appliance sales and service storefront.",
+          image: "/projects/sarco-1-hero.png",
+        },
+        {
+          label: "02 — Core workflow",
+          caption: "Delivery, installation, repair and protection offerings.",
+          image: "/projects/sarco-2-services.png",
         },
       ],
     },
@@ -698,37 +833,108 @@ export function getProjectBySlug(slug: string): Project {
   return project;
 }
 
+/**
+ * Canonical homepage inventory — Selected Products + More Shipped Work.
+ * Agentic Customer Operations remains in `projects` for its case-study route
+ * but is intentionally outside this 11-project portfolio surface.
+ */
+export const SHIPPED_PORTFOLIO_SLUGS = [
+  "data-agent",
+  "mediguide-ai",
+  "consultamerica",
+  "joblens",
+  "smartwrite-ai",
+  "romeah",
+  "importnest-ai-agent",
+  "bosiano",
+  "appointease",
+  "smart-appliances",
+  "sarco-appliances",
+] as const;
+
+export type ShippedPortfolioSlug = (typeof SHIPPED_PORTFOLIO_SLUGS)[number];
+
+export function getShippedPortfolioProjects(): Project[] {
+  return SHIPPED_PORTFOLIO_SLUGS.map(getProjectBySlug);
+}
+
 export function getTopStories(): Project[] {
-  return [
-    getProjectBySlug("data-agent"),
-    getProjectBySlug("mediguide-ai"),
-    getProjectBySlug("agentic-customer-operations"),
-  ];
+  return getSelectedProducts();
+}
+
+/** Flagship editorial showcase — derived from `featured: true`. */
+export function getSelectedProducts(): Project[] {
+  return getShippedPortfolioProjects()
+    .filter((project) => project.featured)
+    .sort((a, b) => a.order - b.order);
 }
 
 export function getSelectedWork(): Project[] {
-  return [getProjectBySlug("importnest-ai-agent")];
+  return getSelectedProducts();
 }
 
 /** Different products from featured work — avoid repeating the three flagships. */
 export function getAiInActionProjects(): Project[] {
   return [
-    getProjectBySlug("consultamerica"),
+    getProjectBySlug("agentic-customer-operations"),
     getProjectBySlug("joblens"),
     getProjectBySlug("smartwrite-ai"),
   ];
 }
 
+/** Non-flagship shipped work — derived from `featured: false` in the same inventory. */
 export function getMoreWorkProjects(): Project[] {
-  return [
-    "romeah",
-    "importnest-ai-agent",
-    "bosiano",
-    "appointease",
-    "smart-appliances",
-    "sarco-appliances",
-  ].map(getProjectBySlug);
+  return getShippedPortfolioProjects()
+    .filter((project) => !project.featured)
+    .sort((a, b) => a.order - b.order);
 }
+
+/**
+ * Development assertion: selected + more = all 11 unique shipped projects.
+ * Throws when the inventory drifts (duplicate/missing slugs or featured mismatch).
+ */
+export function assertShippedPortfolioInventory(): void {
+  const selected = getSelectedProducts();
+  const more = getMoreWorkProjects();
+  const combined = [...selected, ...more];
+  const combinedSlugs = combined.map((project) => project.slug);
+  const uniqueSlugs = new Set(combinedSlugs);
+  const expected = new Set<string>(SHIPPED_PORTFOLIO_SLUGS);
+
+  if (combined.length !== SHIPPED_PORTFOLIO_SLUGS.length) {
+    throw new Error(
+      `Portfolio inventory length mismatch: selected (${selected.length}) + more (${more.length}) = ${combined.length}, expected ${SHIPPED_PORTFOLIO_SLUGS.length}`,
+    );
+  }
+
+  if (uniqueSlugs.size !== combinedSlugs.length) {
+    throw new Error(
+      `Portfolio inventory has duplicate slugs: ${combinedSlugs.join(", ")}`,
+    );
+  }
+
+  for (const slug of expected) {
+    if (!uniqueSlugs.has(slug)) {
+      throw new Error(`Portfolio inventory missing project: ${slug}`);
+    }
+  }
+
+  for (const slug of uniqueSlugs) {
+    if (!expected.has(slug)) {
+      throw new Error(`Portfolio inventory has unexpected project: ${slug}`);
+    }
+  }
+
+  if (selected.some((project) => !project.featured)) {
+    throw new Error("Selected Products contains a non-featured project");
+  }
+
+  if (more.some((project) => project.featured)) {
+    throw new Error("More Shipped Work contains a featured project");
+  }
+}
+
+assertShippedPortfolioInventory();
 
 export const heroCapabilities = [
   "AI systems",

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
-import { ProductImage } from "@/components/ProductImage";
+import { CaseHeroVisual, ProductGallery } from "@/components/ProjectMedia";
+import { getProjectMedia } from "@/data/projectMedia";
 import { getProject, projects } from "@/data/projects";
 
 type PageProps = {
@@ -30,12 +31,25 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (!project || !project.caseStudy) notFound();
 
   const { caseStudy } = project;
+  const media = getProjectMedia(slug);
+  const gallery = media?.gallery ?? [];
+  const heroSrc = media?.heroImage ?? project.image;
+  const chromeUrl = media?.chromeHost ?? project.liveUrl?.replace(/^https?:\/\//, "");
+  const isDataAgent = slug === "data-agent";
+  const galleryReusesHero =
+    !isDataAgent &&
+    Boolean(heroSrc) &&
+    gallery.some((shot) => shot.src === heroSrc);
+  const showStandaloneHero = Boolean(heroSrc) && !galleryReusesHero && !isDataAgent;
+  const workflowGallery = isDataAgent
+    ? gallery.filter((shot) => shot.src !== heroSrc)
+    : gallery;
 
   return (
     <main className="bg-background text-foreground">
       <SiteHeader />
 
-      <article className="px-5 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pt-36">
+      <article className="px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <Link
             href="/portfolio/#work"
@@ -44,28 +58,94 @@ export default async function CaseStudyPage({ params }: PageProps) {
             ← All work
           </Link>
 
-          <p className="mt-10 text-[12px] font-medium uppercase tracking-[0.16em] text-muted">
+          <p className="mt-8 text-[12px] font-medium uppercase tracking-[0.16em] text-muted">
             {project.eyebrow}
           </p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
             {project.name}
           </h1>
-          <p className="mt-5 max-w-2xl text-xl leading-snug text-foreground/85 sm:text-2xl">
-            {project.headline}
-          </p>
-          <p className="mt-4 text-[13px] text-muted">
-            {project.disciplines.join(" · ")}
-          </p>
 
-          {project.image || project.slug === "agentic-customer-operations" ? (
-            <div className="project-media mt-12 overflow-hidden rounded-[12px] border border-border bg-[#122844]">
-              <div className="aspect-[16/10]">
-                <ProductImage project={project} />
+          {isDataAgent ? (
+            <div className="mt-8 grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+              <div className="lg:col-span-5">
+                <p className="max-w-md text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                  Document intelligence,
+                  <br />
+                  built around evidence.
+                </p>
+                <p className="mt-4 max-w-md text-[16px] leading-relaxed text-muted">
+                  Extract, structure and verify information from complex business documents.
+                </p>
+                <a
+                  href="#product-experience"
+                  className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                >
+                  Explore the workflow
+                  <span className="arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
               </div>
+              <div className="lg:col-span-7">
+                {heroSrc ? (
+                  <div className="overflow-hidden rounded-[10px] border border-border bg-[#e9eef3] p-1.5 sm:p-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={heroSrc}
+                      alt="Data Agent application screenshot — sample services agreement with extracted information"
+                      className="h-auto w-full object-contain object-top"
+                    />
+                  </div>
+                ) : null}
+                <p className="mt-3 text-[13px] text-muted">
+                  01 — EXTRACT · Turn complex documents into structured, usable information.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <p className="mt-4 max-w-2xl text-lg leading-snug text-foreground/85 sm:text-xl">
+                {project.headline}
+              </p>
+              {project.workflow && project.workflow.length > 0 ? (
+                <p className="mt-4 text-[13px] tracking-wide text-muted">
+                  {project.workflow.join(" → ")}
+                </p>
+              ) : (
+                <p className="mt-3 text-[13px] text-muted">
+                  {project.disciplines.join(" · ")}
+                </p>
+              )}
+            </>
+          )}
+
+          {showStandaloneHero ? (
+            <div className="project-media mt-8">
+              <CaseHeroVisual
+                src={heroSrc!}
+                alt={media?.heroCaption ?? `${project.name} product interface`}
+                url={chromeUrl}
+                fit={media?.heroFit ?? "contain"}
+                position={media?.heroPosition ?? "top"}
+                presentation={media?.heroPresentation ?? "browser"}
+                density={media?.heroDensity ?? "standard"}
+                caption={media?.heroCaption}
+              />
             </div>
           ) : null}
 
-          <div className="mt-16 grid gap-12 border-t border-border pt-12 lg:grid-cols-12 lg:gap-16 lg:pt-16">
+          {galleryReusesHero && gallery.length > 0 ? (
+            <div className="mt-8">
+              <ProductGallery
+                shots={gallery}
+                url={chromeUrl}
+                heading={media?.galleryHeading ?? "Product experience"}
+                subheading={media?.gallerySubheading}
+              />
+            </div>
+          ) : null}
+
+          <div className="mt-14 grid gap-12 border-t border-border pt-12 lg:grid-cols-12 lg:gap-16 lg:pt-14">
             <div className="lg:col-span-8">
               <h2 className="text-sm font-medium uppercase tracking-[0.14em] text-muted">
                 Overview
@@ -74,15 +154,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 {caseStudy.overview}
               </p>
 
-              <div className="mt-14 space-y-12">
+              <div className="mt-12 space-y-12">
                 {caseStudy.sections.map((section) => (
                   <section key={section.title}>
                     <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                       {section.title}
                     </h2>
-                    <p className="mt-4 text-[17px] leading-relaxed text-muted">
-                      {section.body}
-                    </p>
+                    <p className="mt-4 text-[17px] leading-relaxed text-muted">{section.body}</p>
                   </section>
                 ))}
               </div>
@@ -132,52 +210,26 @@ export default async function CaseStudyPage({ params }: PageProps) {
               ) : null}
 
               <section className="mt-14">
-                <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                  Outcome
-                </h2>
-                <p className="mt-4 text-[17px] leading-relaxed text-muted">
-                  {caseStudy.outcome}
-                </p>
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground">Outcome</h2>
+                <p className="mt-4 text-[17px] leading-relaxed text-muted">{caseStudy.outcome}</p>
               </section>
 
-              {caseStudy.screenshots.length > 0 ? (
-                <section className="mt-14">
-                  <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                    Product imagery
-                  </h2>
-                  <div className="mt-8 space-y-10">
-                    {caseStudy.screenshots.map((shot) => (
-                      <figure key={shot.label}>
-                        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-muted">
-                          {shot.label}
-                        </p>
-                        <p className="mt-2 text-sm text-muted">{shot.caption}</p>
-                        {shot.image ? (
-                          <div className="project-media mt-4 overflow-hidden rounded-[12px] border border-border bg-surface-soft">
-                            <div className="aspect-[16/10]">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={shot.image}
-                                alt={shot.caption}
-                                loading="lazy"
-                                className="h-full w-full object-cover object-top transition-transform duration-700"
-                              />
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="mt-4 flex aspect-[16/10] items-center justify-center rounded-[12px] border border-dashed border-border bg-surface-soft px-6 text-center text-sm text-muted">
-                            Art-directed screenshot placeholder — {shot.label}
-                          </div>
-                        )}
-                      </figure>
-                    ))}
-                  </div>
-                </section>
+              {workflowGallery.length > 0 ? (
+                <div id="product-experience" className="mt-14 scroll-mt-24">
+                  <ProductGallery
+                    shots={workflowGallery}
+                    url={
+                      media?.heroPresentation === "browser" ? chromeUrl : undefined
+                    }
+                    heading={media?.galleryHeading ?? "Product experience"}
+                    subheading={media?.gallerySubheading}
+                  />
+                </div>
               ) : null}
             </div>
 
             <aside className="lg:col-span-4">
-              <div className="sticky top-28 space-y-8 rounded-[12px] border border-border bg-surface p-6">
+              <div className="sticky top-24 space-y-8 rounded-[12px] border border-border bg-surface p-6">
                 <div>
                   <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-muted">
                     Project type
@@ -205,12 +257,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-arrow inline-flex items-center gap-2 text-sm font-medium text-foreground"
+                    className="btn-primary inline-flex min-h-10 w-full items-center justify-center rounded-full px-4 text-sm"
                   >
-                    View live application
-                    <span className="arrow transition-transform duration-300" aria-hidden="true">
-                      ↗
-                    </span>
+                    View live application ↗
                   </a>
                 ) : (
                   <p className="text-sm text-muted">Case study in progress</p>

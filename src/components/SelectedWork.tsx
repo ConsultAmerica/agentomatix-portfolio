@@ -68,7 +68,6 @@ export function SelectedWorkFeature({
                     alt={editorial.alt}
                     kind="product"
                     stage="dark"
-                    fit="cover"
                   />
                 ) : imageSrc ? (
                   <EditorialPhoto
@@ -76,10 +75,9 @@ export function SelectedWorkFeature({
                     alt={`${project.name} product interface`}
                     kind="product"
                     stage="dark"
-                    fit="cover"
                   />
                 ) : (
-                  <ProductImage project={project} forceFit="cover" />
+                  <ProductImage project={project} />
                 )}
               </div>
             </div>
@@ -121,7 +119,6 @@ export function CraftingProducts() {
                       src={photo.src}
                       alt={photo.alt}
                       kind={photo.kind ?? "photo"}
-                      fit="cover"
                       stage="dark"
                     />
                   ) : null}
@@ -211,90 +208,15 @@ export function AiInAction({ projects }: { projects: Project[] }) {
                         alt={visual.alt}
                         kind="product"
                         stage="dark"
-                        fit="cover"
                       />
                     ) : (
-                      <ProductImage project={project} forceFit="cover" />
+                      <ProductImage project={project} />
                     )}
                   </div>
                 </div>
               </article>
             );
           })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function MoreWorkTable({ projects }: { projects: Project[] }) {
-  return (
-    <section
-      id="work"
-      className="scroll-mt-24 border-t border-black/5 bg-band-light px-5 py-10 text-band-light-fg sm:px-8 sm:py-12 lg:px-10 lg:py-14"
-    >
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="meta-label text-band-light-muted">Selected products</p>
-            <h2 className="section-heading mt-2 text-3xl sm:text-4xl">More shipped work</h2>
-          </div>
-          <p className="max-w-sm text-sm leading-relaxed text-band-light-muted">
-            Commerce, careers, writing, scheduling and local services — each built as a
-            focused product.
-          </p>
-        </div>
-
-        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              href={`/portfolio/${project.slug}/`}
-              className="group flex flex-col overflow-hidden rounded-[12px] border border-[#122844]/10 bg-[#f7f9fc] transition-all hover:-translate-y-0.5 hover:border-[#122844]/25 hover:shadow-[0_16px_36px_-28px_rgba(12,26,50,0.35)]"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#0e1f3c]">
-                {project.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={project.image}
-                    alt=""
-                    loading="lazy"
-                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center text-sm text-slate-400">
-                    {project.name}
-                  </div>
-                )}
-                <span className="absolute left-3 top-3 rounded-full bg-[#0e1f3c]/90 px-2 py-0.5 text-[10px] font-medium tracking-[0.12em] text-white uppercase backdrop-blur-sm">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-
-              <div className="flex flex-1 flex-col p-4 sm:p-5">
-                <p className="text-[12px] tracking-wide text-band-light-muted">
-                  {project.eyebrow}
-                </p>
-                <h3 className="mt-1 text-lg font-semibold tracking-tight text-band-light-fg">
-                  {project.name}
-                </h3>
-                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-band-light-muted">
-                  {project.headline}
-                </p>
-                <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#122844]/10 pt-3">
-                  <p className="truncate text-[12px] tracking-wide text-band-light-muted">
-                    {project.disciplines.slice(0, 2).join(" · ")}
-                  </p>
-                  <span className="link-arrow inline-flex shrink-0 items-center gap-1 text-sm font-medium text-band-light-fg">
-                    View
-                    <span className="arrow transition-transform duration-300" aria-hidden="true">
-                      →
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
         </div>
       </div>
     </section>

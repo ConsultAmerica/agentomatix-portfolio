@@ -38,7 +38,7 @@ export default function SiteHeader() {
           : "border-transparent bg-background/80 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         <Link href="/portfolio/" className="group flex min-w-0 items-center gap-3">
           <Image
             src="/consult-america-logo.png"

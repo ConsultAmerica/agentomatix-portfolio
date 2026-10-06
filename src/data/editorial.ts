@@ -9,17 +9,22 @@ export type EditorialAsset = {
 /** Featured work — sanitized product interfaces. */
 export const topStoryImages: Record<string, EditorialAsset> = {
   "data-agent": {
-    src: "/projects/data-agent-clean.jpg",
-    alt: "Data Agent document intelligence workspace with masked field values",
+    src: "/projects/data-agent-extract-ui.jpg",
+    alt: "Data Agent application — sample services agreement with extracted information panel",
     kind: "product",
   },
   "mediguide-ai": {
-    src: "/projects/mediguide-anon.jpg",
+    src: "/projects/mediguide-full.jpg",
     alt: "MediGuide product interface with demo placeholder metrics",
     kind: "product",
   },
+  consultamerica: {
+    src: "/projects/consultamerica-full.png",
+    alt: "Consult America enterprise consulting homepage",
+    kind: "product",
+  },
   "agentic-customer-operations": {
-    src: "/projects/agentic-anon.jpg",
+    src: "/projects/agentic-full.jpg",
     alt: "Agentic operations sample case investigation dashboard",
     kind: "product",
   },
@@ -47,23 +52,23 @@ export const craftImages: EditorialAsset[] = [
 /** AI in Action — different products from featured work (no repeat of the three flagships). */
 export const actionImages: Record<string, EditorialAsset> = {
   consultamerica: {
-    src: "/projects/consultamerica.png",
+    src: "/projects/consultamerica-full.png",
     alt: "Consult America product interface",
     kind: "product",
   },
   joblens: {
-    src: "https://image.thum.io/get/width/1280/crop/800/noanimate/https://joblens-seven.vercel.app/",
+    src: "/projects/joblens.png",
     alt: "JobLens product interface",
     kind: "product",
   },
   "smartwrite-ai": {
-    src: "/projects/smartwrite.png",
+    src: "/projects/smartwrite-1-editor.png",
     alt: "SmartWrite AI writing assistant interface",
     kind: "product",
   },
-  bosiano: {
-    src: "/projects/bosiano.png",
-    alt: "Bosiano fashion storefront",
+  "agentic-customer-operations": {
+    src: "/projects/agentic-full.jpg",
+    alt: "Agentic operations sample case investigation dashboard",
     kind: "product",
   },
 };

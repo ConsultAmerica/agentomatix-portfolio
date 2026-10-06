@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:inventory": "npx --yes tsx scripts/assert-portfolio-inventory.ts",
+    "test:qa": "npx --yes tsx scripts/qa-portfolio.ts"
   },
   "dependencies": {
     "next": "16.2.9",

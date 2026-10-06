@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Agent — Verify Evidence</title>
+  <link rel="stylesheet" href="./demo.css" />
+  <style>
+    .evidence {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.22);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .evidence strong { color: var(--cyan); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="app" id="shot">
+    <header class="top">
+      <div class="brand">
+        <div class="brand-mark">DA</div>
+        <span>Data Agent</span>
+      </div>
+      <div class="top-actions">
+        <button class="btn btn-primary">+ New Extraction</button>
+        <div class="avatar">DA</div>
+      </div>
+    </header>
+    <nav class="nav">
+      <div class="nav-item"><span class="ico">▣</span>Dash</div>
+      <div class="nav-item active"><span class="ico">✓</span>Verify</div>
+      <div class="nav-item"><span class="ico">◎</span>Agents</div>
+      <div class="nav-item"><span class="ico">☰</span>Templates</div>
+      <div class="nav-item"><span class="ico">⚙</span>Settings</div>
+    </nav>
+    <main class="workspace">
+      <div class="doc-bar">
+        <div>
+          <strong>Sample_Services_Agreement.pdf</strong>
+          <span class="tag">Evidence view</span>
+        </div>
+        <div>Page 1 · Source linked</div>
+      </div>
+      <div class="doc-stage">
+        <article class="page">
+          <div class="page-top">
+            <div>Source evidence<br />Portfolio demonstration</div>
+            <div style="text-align:right">Data Agent</div>
+          </div>
+          <h1>SAMPLE SERVICES AGREEMENT</h1>
+          <p class="meta">
+            Active verification focuses on the selected field and its source span.
+          </p>
+          <p class="meta">
+            <strong>Contract No:</strong>
+            <span class="hl hl-a">DEMO-2026-001</span>
+          </p>
+          <p class="meta">
+            <strong>Effective Date:</strong>
+            <span class="hl hl-b">Sample Date</span>
+          </p>
+          <p class="meta">
+            <strong>Total Value:</strong>
+            <span class="hl hl-b">Sample Amount</span>
+          </p>
+          <p>
+            Client <span class="hl hl-a">Example Organization</span> and Provider
+            <span class="hl hl-a">Demo Services LLC</span> are linked to the same
+            synthetic demonstration document.
+          </p>
+          <p>
+            Term <span class="hl hl-b">Sample Term</span> · Governing Law
+            <span class="hl hl-b">Sample Jurisdiction</span> · Type
+            <span class="hl hl-a">Services Agreement</span>.
+          </p>
+        </article>
+      </div>
+    </main>
+    <aside class="side">
+      <div class="side-head">
+        <h2>Field verification</h2>
+        <div class="status"><span class="dot">●</span> Source evidence linked</div>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <div class="field-top"><span class="field-label">Selected field</span><span class="conf">99%</span></div>
+          <div class="field-value">Contract No. · DEMO-2026-001</div>
+          <div class="evidence"><strong>Source:</strong> Sample_Services_Agreement.pdf · page 1 · highlighted span</div>
+        </div>
+        <div class="field">
+          <div class="field-top"><span class="field-label">Effective Date</span><span class="conf">97%</span></div>
+          <div class="field-value">Sample Date</div>
+          <div class="evidence"><strong>Source:</strong> matched date span in sample agreement</div>
+        </div>
+        <div class="field">
+          <div class="field-top"><span class="field-label">Total Value</span><span class="conf">94%</span></div>
+          <div class="field-value">Sample Amount</div>
+          <div class="evidence"><strong>Source:</strong> compensation section · sample amount</div>
+        </div>
+        <div class="field">
+          <div class="field-top"><span class="field-label">Parties</span><span class="conf">98%</span></div>
+          <div class="field-value">Example Organization / Demo Services LLC</div>
+          <div class="evidence"><strong>Source:</strong> parties paragraph · synthetic names only</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">Reject</button>
+        <button class="btn btn-primary btn-wide">Confirm field</button>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>
