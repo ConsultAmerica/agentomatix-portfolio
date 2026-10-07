@@ -37,14 +37,20 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const heroSrc = media?.heroImage ?? project.image;
   const chromeUrl = media?.chromeHost ?? project.liveUrl?.replace(/^https?:\/\//, "");
   const isDataAgent = slug === "data-agent";
-  const galleryReusesHero =
-    !isDataAgent &&
-    Boolean(heroSrc) &&
-    gallery.some((shot) => shot.src === heroSrc);
-  const showStandaloneHero = Boolean(heroSrc) && !galleryReusesHero && !isDataAgent;
-  const workflowGallery = isDataAgent
+  const galleryIncludesHero =
+    Boolean(heroSrc) && gallery.some((shot) => shot.src === heroSrc);
+
+  // Show hero alone only when it is not already the first gallery narrative shot.
+  const showStandaloneHero = Boolean(heroSrc) && !galleryIncludesHero && !isDataAgent;
+
+  // Never render the same ProductGallery twice (was duplicating Romeah/Bosiano/etc.).
+  const topGalleryShots =
+    !isDataAgent && galleryIncludesHero ? gallery : [];
+  const bottomGalleryShots = isDataAgent
     ? gallery.filter((shot) => shot.src !== heroSrc)
-    : gallery;
+    : galleryIncludesHero
+      ? []
+      : gallery;
 
   return (
     <main className="bg-background text-foreground">
@@ -99,7 +105,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   </div>
                 ) : null}
                 <p className="mt-3 text-[13px] text-muted">
-                  01 — EXTRACT · Turn complex documents into structured, usable information.
+                  {media?.heroCaption ??
+                    "Document intelligence with confidence and precision."}
                 </p>
               </div>
             </div>
@@ -135,10 +142,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           ) : null}
 
-          {galleryReusesHero && gallery.length > 0 ? (
-            <div className="mt-8">
+          {topGalleryShots.length > 0 ? (
+            <div id="product-experience" className="mt-8 scroll-mt-24">
               <ProductGallery
-                shots={gallery}
+                shots={topGalleryShots}
                 url={chromeUrl}
                 heading={media?.galleryHeading ?? "Product experience"}
                 subheading={media?.gallerySubheading}
@@ -215,10 +222,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <p className="mt-4 text-[17px] leading-relaxed text-muted">{caseStudy.outcome}</p>
               </section>
 
-              {workflowGallery.length > 0 ? (
+              {bottomGalleryShots.length > 0 ? (
                 <div id="product-experience" className="mt-14 scroll-mt-24">
                   <ProductGallery
-                    shots={workflowGallery}
+                    shots={bottomGalleryShots}
                     url={
                       media?.heroPresentation === "browser" ? chromeUrl : undefined
                     }

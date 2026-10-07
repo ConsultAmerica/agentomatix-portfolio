@@ -37,8 +37,7 @@ export type ProjectMediaConfig = {
   gallery: MediaShot[];
 };
 
-/** Dedupe gallery shots. Hero may appear in gallery for labeled narrative steps;
- * case pages skip a separate hero when gallery already includes that asset. */
+/** Dedupe gallery shots by src. Cap at 5 distinct views. */
 function uniqueGallery(_hero: string, shots: MediaShot[]): MediaShot[] {
   const seen = new Set<string>();
   const out: MediaShot[] = [];
@@ -46,7 +45,7 @@ function uniqueGallery(_hero: string, shots: MediaShot[]): MediaShot[] {
     if (!shot.src || seen.has(shot.src)) continue;
     seen.add(shot.src);
     out.push(shot);
-    if (out.length >= 4) break;
+    if (out.length >= 5) break;
   }
   return out;
 }
@@ -65,7 +64,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
     cardFit: "contain",
     chromeHost: "data-agent-ca.vercel.app",
     galleryHeading: "Product experience",
-    gallerySubheading: "Product → Extract → Verify → Review → Regulatory",
+    gallerySubheading: "Product → Extract → Verify → Regulatory",
     gallery: [
       {
         src: "/projects/data-agent-product.png",
@@ -89,15 +88,8 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         presentation: "stage",
       },
       {
-        src: "/projects/data-agent-anon.jpg",
-        label: "04 — REVIEW",
-        caption: "Review structured results before approval or downstream use.",
-        density: "dense",
-        presentation: "stage",
-      },
-      {
         src: "/projects/data-agent-far.jpg",
-        label: "05 — REGULATORY INTELLIGENCE",
+        label: "04 — REGULATORY INTELLIGENCE",
         caption: "Turn complex regulatory content into searchable structured records.",
         density: "dense",
         presentation: "stage",
@@ -115,16 +107,11 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
     galleryHeading: "Inside the product",
     gallery: [
       {
-        src: "/projects/mediguide-anon.jpg",
-        label: "01 — Guidance flow",
-        caption: "Demo-safe guidance interface with placeholder metrics only.",
-        presentation: "browser",
-      },
-      {
         src: "/projects/mediguide.png",
-        label: "02 — Product surface",
-        caption: "Healthcare AI product presentation.",
-        presentation: "browser",
+        label: "01 — Product surface",
+        caption: "Healthcare document intelligence workspace with synthetic lab timeline.",
+        presentation: "stage",
+        density: "dense",
       },
     ],
   },
@@ -143,19 +130,21 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         src: "/projects/consultamerica-g2-services.png",
         label: "01 — Capabilities",
         caption: "Enterprise transformation and strategic capability sections.",
-        presentation: "browser",
+        presentation: "stage",
+        density: "dense",
       },
       {
         src: "/projects/consultamerica-g2b.png",
         label: "02 — AI & data",
         caption: "AI and data transformation messaging for decision-makers.",
-        presentation: "browser",
+        presentation: "stage",
+        density: "dense",
       },
       {
         src: "/projects/consultamerica-g3-jobs.png",
         label: "03 — Jobs portal",
         caption: "Enterprise job portal and platform experience.",
-        presentation: "browser",
+        presentation: "stage",
         density: "dense",
       },
     ],
@@ -205,13 +194,15 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         src: "/projects/importnest-2-compare.png",
         label: "01 — Compare",
         caption: "Total Known Cost comparison with filters.",
-        presentation: "browser",
+        presentation: "stage",
+        density: "dense",
       },
       {
         src: "/projects/importnest-3-categories.png",
         label: "02 — Categories",
         caption: "Shop-by-category discovery with department cards.",
-        presentation: "browser",
+        presentation: "stage",
+        density: "dense",
       },
     ],
   },
@@ -277,7 +268,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         label: "01 — New Arrivals",
         caption:
           "All Pieces sorted by newest — filters, sort controls and a full product grid.",
-        presentation: "browser",
+        presentation: "stage",
         fit: "contain",
         density: "dense",
       },
@@ -288,6 +279,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
           "Women collection — category filters, active facets and merchandised product cards.",
         presentation: "stage",
         fit: "contain",
+        density: "dense",
       },
       {
         src: "/projects/bosiano-g3-product.png",
@@ -296,6 +288,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
           "Fluid Silk Slip Dress PDP — colour, size, pricing and AI size recommendation.",
         presentation: "stage",
         fit: "contain",
+        density: "dense",
       },
     ],
   },
@@ -317,7 +310,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         label: "01 — Discover",
         caption:
           "Homepage campaign — Fall 2026 “La Nuova Donna” with Discover New In.",
-        presentation: "browser",
+        presentation: "stage",
         fit: "contain",
         density: "dense",
       },
@@ -328,6 +321,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
           "Women’s Handbags — category intro, bag filters and a four-product merchandise grid.",
         presentation: "stage",
         fit: "contain",
+        density: "dense",
       },
       {
         src: "/projects/romeah-g3-travel.png",
@@ -336,6 +330,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
           "Travel collection — “The Art of Arrival” with full site navigation preserved.",
         presentation: "stage",
         fit: "contain",
+        density: "dense",
       },
     ],
   },
@@ -357,7 +352,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         label: "01 — Book an Appointment",
         caption:
           "Marketing homepage with booking portal — clinic choice, provider and available slots.",
-        presentation: "browser",
+        presentation: "stage",
         density: "dense",
       },
       {
@@ -366,6 +361,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         caption:
           "Patient booking flow — Select a clinic with location, hours and service counts.",
         presentation: "stage",
+        density: "dense",
       },
       {
         src: "/projects/appointease-g3-onboard.png",
@@ -373,6 +369,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         caption:
           "Create account as Admin (create a business) — clinic / provider registration.",
         presentation: "stage",
+        density: "dense",
       },
     ],
   },
@@ -394,7 +391,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         label: "01 — Service Discovery",
         caption:
           "Homepage hero — home appliance repair proposition and Get a Free Service Quote.",
-        presentation: "browser",
+        presentation: "stage",
         density: "dense",
       },
       {
@@ -403,6 +400,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         caption:
           "Appliance service page — What appliance needs service? with dishwasher, washer, fridge and oven.",
         presentation: "stage",
+        density: "dense",
       },
       {
         src: "/projects/smart-appliances-g3-booking.png",
@@ -410,6 +408,7 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
         caption:
           "Book Regular Service — step 1 Service Details with selected Refrigerator appointment.",
         presentation: "stage",
+        density: "dense",
       },
     ],
   },

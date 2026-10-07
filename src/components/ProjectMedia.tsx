@@ -129,26 +129,21 @@ export function ProductShot({
   featured = false,
   fit = "contain",
   position = "top",
-  presentation,
-  density,
+  presentation = "stage",
+  density = "dense",
   alt,
 }: ProductShotProps) {
-  // Browser chrome for featured screens only; secondary shots use a simpler stage.
-  const resolvedPresentation =
-    presentation ?? (featured ? "browser" : "stage");
-  const resolvedDensity = density ?? (featured ? "dense" : "standard");
-
   return (
     <figure className={`product-shot ${featured ? "product-shot--featured" : ""}`}>
       <div className="product-shot__stage">
         <ProjectMedia
           src={src}
           alt={alt ?? caption}
-          url={featured ? url : undefined}
+          url={presentation === "browser" ? url : undefined}
           fit={fit}
           position={position}
-          presentation={resolvedPresentation}
-          density={resolvedDensity}
+          presentation={presentation}
+          density={density}
         />
       </div>
       <figcaption className="product-shot__caption">

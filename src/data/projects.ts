@@ -136,12 +136,7 @@ export const projects: Project[] = [
           image: "/projects/data-agent-verify.jpg",
         },
         {
-          label: "04 — REVIEW",
-          caption: "Review structured results before approval or downstream use.",
-          image: "/projects/data-agent-anon.jpg",
-        },
-        {
-          label: "05 — REGULATORY INTELLIGENCE",
+          label: "04 — REGULATORY INTELLIGENCE",
           caption:
             "Turn complex regulatory content into searchable structured records.",
           image: "/projects/data-agent-far.jpg",
