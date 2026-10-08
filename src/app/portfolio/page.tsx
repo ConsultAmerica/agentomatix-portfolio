@@ -75,25 +75,25 @@ export default function PortfolioPage() {
               <div className="flex items-start justify-between gap-3 px-4 pt-4 pb-2">
                 <div>
                   <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
-                    Shipped products
+                    Product studio
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-white">11 products across the portfolio</p>
+                  <p className="mt-1 text-sm font-semibold text-white">Built for real workflows</p>
                   <p className="mt-0.5 text-[12px] text-slate-400">
-                    AI · Healthcare · Commerce · Scheduling · Services
+                    AI · Healthcare · Commerce · Operations
                   </p>
                 </div>
                 <a
                   href="#work"
                   className="shrink-0 text-xs font-medium text-cyan-300 hover:text-cyan-200"
                 >
-                  View all →
+                  View work →
                 </a>
               </div>
               <div className="px-2 pb-2 sm:px-3 sm:pb-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/projects/hero-applications.png"
-                  alt="Collage of Agentomatix shipped products — Data Agent, MediGuide, Consult America, ImportNest, Bosiano, Romeah, SmartWrite, AppointEase, and Smart Appliances"
+                  alt="Layered product interfaces representing Agentomatix digital products across AI, healthcare and commerce"
                   className="h-auto w-full rounded-[8px] object-contain object-top"
                 />
               </div>
