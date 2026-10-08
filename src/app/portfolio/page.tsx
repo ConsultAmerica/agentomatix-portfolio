@@ -77,7 +77,7 @@ export default function PortfolioPage() {
                   <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
                     Shipped products
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-white">Across the portfolio</p>
+                  <p className="mt-1 text-sm font-semibold text-white">11 products across the portfolio</p>
                   <p className="mt-0.5 text-[12px] text-slate-400">
                     AI · Healthcare · Commerce · Scheduling · Services
                   </p>
