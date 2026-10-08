@@ -62,8 +62,8 @@ export const actionImages: Record<string, EditorialAsset> = {
     kind: "product",
   },
   "smartwrite-ai": {
-    src: "/projects/smartwrite-1-editor.png",
-    alt: "SmartWrite AI writing assistant interface",
+    src: "/projects/smartwrite-card.png",
+    alt: "SmartWrite writing workspace with modes, editor and suggestions",
     kind: "product",
   },
   "agentic-customer-operations": {

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SelectedProducts } from "@/components/SelectedProducts";
@@ -76,25 +75,25 @@ export default function PortfolioPage() {
               <div className="flex items-start justify-between gap-3 px-4 pt-4 pb-2">
                 <div>
                   <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-slate-400">
-                    Featured product
+                    Shipped products
                   </p>
-                  <p className="mt-1 text-sm font-semibold text-white">MediGuide</p>
+                  <p className="mt-1 text-sm font-semibold text-white">Across the portfolio</p>
                   <p className="mt-0.5 text-[12px] text-slate-400">
-                    Healthcare AI · Document guidance · Traceability
+                    AI · Healthcare · Commerce · Scheduling · Services
                   </p>
                 </div>
-                <Link
-                  href="/portfolio/mediguide-ai/"
+                <a
+                  href="#work"
                   className="shrink-0 text-xs font-medium text-cyan-300 hover:text-cyan-200"
                 >
-                  Case study →
-                </Link>
+                  View all →
+                </a>
               </div>
               <div className="px-2 pb-2 sm:px-3 sm:pb-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/projects/mediguide-full.jpg"
-                  alt="MediGuide — health document guidance product interface"
+                  src="/projects/hero-applications.png"
+                  alt="Collage of Agentomatix shipped products — Data Agent, MediGuide, Consult America, ImportNest, Bosiano, Romeah, SmartWrite, AppointEase, and Smart Appliances"
                   className="h-auto w-full rounded-[8px] object-contain object-top"
                 />
               </div>

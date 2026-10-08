@@ -246,10 +246,32 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
     heroPresentation: "browser",
     heroDensity: "dense",
     cardImage: "/projects/smartwrite-card.png",
+    chromeHost: "grammarly-app-seven.vercel.app",
     galleryHeading: "Product experience",
-    // Remaining smartwrite-* assets are near-duplicates of the hero workspace —
-    // never pad the gallery by repeating the same screen.
-    gallery: [],
+    gallerySubheading: "Workspace → Writing modes → Check",
+    gallery: [
+      {
+        src: "/projects/smartwrite-card.png",
+        label: "01 — Workspace",
+        caption: "Writing workspace with modes, editor and live suggestions.",
+        presentation: "stage",
+        density: "dense",
+      },
+      {
+        src: "/projects/smartwrite-2-modes.png",
+        label: "02 — Writing modes",
+        caption: "Switch tone and rules across Email, Resume, Academic and more.",
+        presentation: "stage",
+        density: "dense",
+      },
+      {
+        src: "/projects/smartwrite-3-check.png",
+        label: "03 — Check",
+        caption: "Run a writing check for grammar, clarity and tone issues.",
+        presentation: "stage",
+        density: "dense",
+      },
+    ],
   },
 
   bosiano: {

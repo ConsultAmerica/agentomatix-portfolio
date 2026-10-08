@@ -512,20 +512,20 @@ export const projects: Project[] = [
       outcome: "A SaaS-style writing product for freelancers, students, and teams.",
       screenshots: [
         {
-          label: "01 — Editor",
-          caption: "Writing workspace with rewrite actions and issues panel.",
+          label: "01 — Workspace",
+          caption: "Writing workspace with modes, editor and live suggestions.",
           image: "/projects/smartwrite-card.png",
         },
         {
           label: "02 — Writing modes",
-          caption: "Domain modes for email, resume, academic and business.",
+          caption: "Switch tone and rules across Email, Resume, Academic and more.",
           image: "/projects/smartwrite-2-modes.png",
         },
         {
-          label: "03 — Check flow",
-          caption: "Grammar and tone review surface.",
+          label: "03 — Check",
+          caption: "Run a writing check for grammar, clarity and tone issues.",
           image: "/projects/smartwrite-3-check.png",
-        }
+        },
       ],
     },
   },
