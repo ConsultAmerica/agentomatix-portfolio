@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     description:
       "We design and build intelligent digital products. AI applications, enterprise platforms and automation systems designed around real business problems.",
     type: "website",
-    url: "https://agentomatic-portfolio.vercel.app/portfolio/",
+    url: "https://agentomatix.com/portfolio/",
     siteName: "Agentomatix",
     images: [
       {
-        url: "https://agentomatic-portfolio.vercel.app/agentomatix-mark.svg",
-        width: 64,
-        height: 64,
+        url: "https://agentomatix.com/icon.png",
+        width: 512,
+        height: 512,
         alt: "Agentomatix",
       },
     ],
