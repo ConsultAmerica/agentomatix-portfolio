@@ -32,8 +32,8 @@ export default function SiteHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
         scrolled || open
-          ? "border-border bg-background/95 backdrop-blur-md"
-          : "border-transparent bg-background/80 backdrop-blur-sm"
+          ? "border-[#d5dde6] bg-white/95 shadow-sm backdrop-blur-md"
+          : "border-[#d5dde6] bg-white backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
@@ -42,7 +42,7 @@ export default function SiteHeader() {
           className="min-w-0 text-[22px] sm:text-[26px] lg:text-[28px]"
           aria-label="Agentomatix home"
         >
-          <Wordmark />
+          <Wordmark tone="light" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -50,7 +50,7 @@ export default function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-sm text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+              className="rounded-md px-3 py-2 text-sm text-[#55657a] transition-colors hover:text-[#0f2a4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
             >
               {link.label}
             </a>
@@ -60,7 +60,7 @@ export default function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2 md:hidden">
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-border text-foreground"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-[#d5dde6] text-[#0f2a4a]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -86,14 +86,14 @@ export default function SiteHeader() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-border bg-background px-5 py-4 sm:px-8 md:hidden"
+          className="border-t border-[#d5dde6] bg-white px-5 py-4 sm:px-8 md:hidden"
         >
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-md px-3 py-3 text-base font-medium text-foreground"
+                className="rounded-md px-3 py-3 text-base font-medium text-[#0f2a4a]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
