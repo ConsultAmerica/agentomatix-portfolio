@@ -150,6 +150,33 @@ const rawMedia: Record<string, ProjectMediaConfig> = {
     ],
   },
 
+  consulthire: {
+    slug: "consulthire",
+    heroImage: "/projects/consulthire-dashboard.jpg",
+    heroCaption: "Recruiter dashboard ranking candidates by AI fit score.",
+    heroPresentation: "browser",
+    heroDensity: "dense",
+    cardImage: "/projects/consulthire-dashboard.jpg",
+    chromeHost: "consulthire.vercel.app",
+    galleryHeading: "Product experience",
+    gallery: [
+      {
+        src: "/projects/consulthire-report.jpg",
+        label: "01 / Interview report",
+        caption: "AI verdict, fit score and the full transcript for every candidate.",
+        presentation: "browser",
+        density: "dense",
+      },
+      {
+        src: "/projects/consulthire-candidate.jpg",
+        label: "02 / Candidate experience",
+        caption: "Candidates pick a role and start a chat interview in seconds.",
+        presentation: "browser",
+        density: "dense",
+      },
+    ],
+  },
+
   "agentic-customer-operations": {
     slug: "agentic-customer-operations",
     heroImage: "/projects/agentic-full.jpg",

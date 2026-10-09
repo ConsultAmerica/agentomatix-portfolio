@@ -55,9 +55,9 @@ const vaults: Vault[] = [
     code: "V-04",
     title: "Enterprise platforms",
     headline: "The systems a whole company runs on.",
-    body: "Marketing sites, job portals and internal platforms engineered for scale, content teams and real traffic.",
-    pipeline: ["Brand", "Content", "Talent", "Leads"],
-    products: [{ name: "Consult America", slug: "consultamerica" }],
+    body: "Hiring, internal tools and platforms engineered for real teams: AI interviews, scoring and recruiter dashboards that go straight to production.",
+    pipeline: ["Role", "Interview", "Score", "Hire"],
+    products: [{ name: "ConsultHire", slug: "consulthire" }],
   },
 ];
 

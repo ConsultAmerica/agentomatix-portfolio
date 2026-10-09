@@ -16,16 +16,9 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-6">
-          <p className="hero-in inline-flex items-center gap-2 rounded-full border border-[#0f2a4a]/10 bg-white/70 px-3 py-1 text-[12.5px] font-medium text-[#3b4c63] backdrop-blur">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#1e7fe0] opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#1e7fe0]" />
-            </span>
-            Digital product studio · AI agents
-          </p>
 
           <h1
-            className="hero-in display-heading mt-6 text-[2.6rem] text-[#0f2a4a] sm:text-[3.4rem] lg:text-[4.1rem]"
+            className="hero-in display-heading text-[2.6rem] text-[#0f2a4a] sm:text-[3.4rem] lg:text-[4.1rem]"
             style={{ animationDelay: "80ms" }}
           >
             We design and build <span className="text-gradient-brand">intelligent</span>{" "}
@@ -98,10 +91,6 @@ export function Hero() {
               />
             </div>
 
-            <div className="hero-chip hero-chip--a">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Agent run complete · 98% confidence
-            </div>
             <div className="hero-chip hero-chip--b">
               <span className="font-mono text-[#1e7fe0]">→</span>
               Extract · Validate · Route

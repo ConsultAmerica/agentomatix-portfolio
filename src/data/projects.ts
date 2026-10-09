@@ -232,7 +232,7 @@ export const projects: Project[] = [
     image: "/projects/consultamerica-full.png",
     imageFit: "contain",
     tier: "featured",
-    featured: true,
+    featured: false,
     layout: "landscape",
     order: 3,
     caseStudy: {
@@ -271,6 +271,77 @@ export const projects: Project[] = [
           caption: "Primary consulting brand experience.",
           image: "/projects/consultamerica.png",
         }
+      ],
+    },
+  },
+  {
+    slug: "consulthire",
+    name: "ConsultHire",
+    eyebrow: "AI Hiring",
+    headline: "An AI recruiter that interviews every candidate and scores fit against the job description.",
+    summary:
+      "Recruiters paste a job description and get a shareable interview link. Every candidate has a short AI interview by chat, and the recruiter gets a 1 to 10 fit score, a verdict and the full transcript.",
+    challenge:
+      "Recruiters cannot screen every applicant by phone, so strong candidates get missed and weak ones take up the calendar.",
+    approach:
+      "Turn the job description into competencies, run an adaptive interview that probes each one with follow-ups, then score the evidence and rank the pipeline.",
+    builtWith: ["Next.js", "React", "TypeScript", "OpenAI", "Prisma", "Postgres", "Gmail API"],
+    disciplines: ["AI Agents", "Hiring", "Product Design"],
+    liveUrl: "https://consulthire.vercel.app/",
+    image: "/projects/consulthire-dashboard.jpg",
+    imageFit: "contain",
+    tier: "featured",
+    featured: true,
+    layout: "landscape",
+    order: 3,
+    caseStudy: {
+      overview:
+        "ConsultHire gives every applicant a real first-round interview and gives recruiters a ranked shortlist with evidence, without adding a single call to their calendar.",
+      sections: [
+        {
+          title: "The problem",
+          body: "First-round screens do not scale. Recruiters skim resumes, phone a handful of people and miss strong candidates whose resumes undersell them.",
+        },
+        {
+          title: "What we built",
+          body: "A recruiter dashboard and a candidate interview flow. Paste a job description, share one link, and each candidate has a ten minute adaptive AI interview. Every interview is scored, summarised and ranked, and the recruiter can invite the best candidates to a second round straight from their own Gmail.",
+        },
+      ],
+      decisions: [
+        {
+          problem: "Generic chatbot interviews ask the same questions to everyone.",
+          decision:
+            "We derive competencies from the job description and track evidence for each one, so the interviewer moves on once a skill is covered and digs in where answers stay vague.",
+          why: "Scores are only trustworthy when they are grounded in specific answers to role specific questions.",
+          result:
+            "Every score links back to the transcript, so a recruiter can see exactly why a candidate ranked where they did.",
+        },
+        {
+          problem: "Follow-up emails were copied by hand into a mail client.",
+          decision:
+            "The second-round invite is written for the role and sent from the recruiter's own Gmail, and the candidate is shortlisted automatically.",
+          why: "Replies should land in the recruiter's inbox, not a no-reply address.",
+          result: "Going from shortlist to scheduled second round takes one click.",
+        },
+      ],
+      outcome:
+        "A live AI recruiter that turns one shared link into a ranked, evidence backed shortlist.",
+      screenshots: [
+        {
+          label: "01 / Recruiter dashboard",
+          caption: "Candidates ranked by fit score with an AI verdict for each.",
+          image: "/projects/consulthire-dashboard.jpg",
+        },
+        {
+          label: "02 / Interview report",
+          caption: "Verdict, score and the full interview transcript.",
+          image: "/projects/consulthire-report.jpg",
+        },
+        {
+          label: "03 / Candidate experience",
+          caption: "Candidates pick a role and start a chat interview in seconds.",
+          image: "/projects/consulthire-candidate.jpg",
+        },
       ],
     },
   },
@@ -842,7 +913,7 @@ export function getProjectBySlug(slug: string): Project {
 export const SHIPPED_PORTFOLIO_SLUGS = [
   "data-agent",
   "mediguide-ai",
-  "consultamerica",
+  "consulthire",
   "joblens",
   "smartwrite-ai",
   "romeah",
