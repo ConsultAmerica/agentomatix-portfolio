@@ -16,7 +16,7 @@ export function SelectedProducts({ projects }: { projects: Project[] }) {
       <div className="mx-auto max-w-6xl">
         <p className="meta-label text-band-light-muted">Selected work</p>
         <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl lg:text-5xl">
-          Work built around real problems.
+          Work built around <span className="text-gradient-brand">real problems.</span>
         </h2>
         <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-band-light-muted">
           AI systems, enterprise applications and digital products designed from workflow to

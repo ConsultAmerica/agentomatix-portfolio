@@ -11,10 +11,10 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-10">
+    <footer className="border-t border-[#0f2a4a]/10 bg-white px-5 py-12 sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <Wordmark tagline className="text-[30px] sm:text-[34px]" />
+          <Wordmark tone="light" tagline className="text-[30px] sm:text-[34px]" />
         </div>
 
         <nav className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer">
@@ -22,7 +22,7 @@ export function SiteFooter() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm text-[#5b6f88] transition-colors hover:text-[#0f2a4a]"
             >
               {link.label}
             </a>
@@ -30,11 +30,11 @@ export function SiteFooter() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-8 flex max-w-6xl flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-muted">© {year} Agentomatix</p>
+      <div className="mx-auto mt-8 flex max-w-6xl flex-col gap-3 border-t border-[#0f2a4a]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-[#5b6f88]">© {year} Agentomatix</p>
         <Link
           href="/portfolio/#top"
-          className="text-sm text-muted transition-colors hover:text-foreground"
+          className="text-sm text-[#5b6f88] transition-colors hover:text-[#0f2a4a]"
         >
           Back to top ↑
         </Link>

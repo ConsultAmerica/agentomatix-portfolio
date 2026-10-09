@@ -113,7 +113,7 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
       <div className="mx-auto max-w-6xl">
         <p className="meta-label text-band-light-muted">From concept</p>
         <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl lg:text-5xl">
-          From concept to live product.
+          From concept to <span className="text-gradient-brand">live product.</span>
         </h2>
         <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-band-light-muted">
           Digital products designed, engineered and shipped for real-world use.
