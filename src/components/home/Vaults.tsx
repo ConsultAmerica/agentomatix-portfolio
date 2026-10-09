@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { getProject } from "@/data/projects";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 
@@ -158,15 +158,17 @@ export function Vaults() {
                         </p>
                         <div className="mt-6 flex flex-wrap gap-2">
                           {vault.products.map((product) => (
-                            <Link
+                            <a
                               key={product.slug}
-                              href={`/portfolio/${product.slug}/`}
+                              href={getProject(product.slug)?.liveUrl ?? `/portfolio/${product.slug}/`}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               tabIndex={open ? 0 : -1}
                               onClick={(event) => event.stopPropagation()}
                               className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 font-mono text-[11.5px] uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-[#1e7fe0] hover:text-white"
                             >
                               {product.name} ↗
-                            </Link>
+                            </a>
                           ))}
                         </div>
                       </div>

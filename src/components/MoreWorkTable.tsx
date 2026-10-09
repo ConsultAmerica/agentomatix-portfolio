@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Project } from "@/data/projects";
 import { getProjectMedia } from "@/data/projectMedia";
 
@@ -16,7 +17,7 @@ function LeadItem({ project, number }: { project: Project; number: string }) {
   const cardSrc = media?.cardImage ?? project.image;
 
   return (
-    <Link href={`/portfolio/${project.slug}/`} className="work-item work-item--lead group">
+    <ProductLink project={project} className="work-item work-item--lead group">
       {cardSrc ? (
         <div className="work-item__media">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -35,7 +36,7 @@ function LeadItem({ project, number }: { project: Project; number: string }) {
           ↗
         </span>
       </div>
-    </Link>
+    </ProductLink>
   );
 }
 
@@ -50,7 +51,7 @@ function ShippedProject({
   const cardSrc = media?.cardImage ?? project.image;
 
   return (
-    <Link href={`/portfolio/${project.slug}/`} className="shipped-project group">
+    <ProductLink project={project} className="shipped-project group">
       <div className="shipped-project__media">
         {cardSrc ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -76,7 +77,7 @@ function ShippedProject({
           ↗
         </span>
       </div>
-    </Link>
+    </ProductLink>
   );
 }
 
@@ -155,5 +156,29 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
         ) : null}
       </div>
     </section>
+  );
+}
+
+/** Opens the live product in a new tab; falls back to the case-study route. */
+function ProductLink({
+  project,
+  className,
+  children,
+}: {
+  project: Project;
+  className: string;
+  children: ReactNode;
+}) {
+  if (!project.liveUrl) {
+    return (
+      <Link href={`/portfolio/${project.slug}/`} className={className}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={className}>
+      {children}
+    </a>
   );
 }
