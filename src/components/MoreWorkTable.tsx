@@ -17,26 +17,38 @@ function LeadItem({ project, number }: { project: Project; number: string }) {
   const cardSrc = media?.cardImage ?? project.image;
 
   return (
-    <ProductLink project={project} className="work-item work-item--lead group">
-      {cardSrc ? (
-        <div className="work-item__media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={cardSrc} alt="" loading="lazy" decoding="async" className="work-item__img" />
+    <div className="flex min-w-0 flex-col">
+      <ProductLink
+        project={project}
+        className="work-item work-item--lead group"
+      >
+        {cardSrc ? (
+          <div className="work-item__media">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={cardSrc}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="work-item__img"
+            />
+          </div>
+        ) : null}
+        <div className="work-item__meta">
+          <div className="work-item__copy min-w-0">
+            <h3 className="work-item__title">
+              <span className="work-item__num">{number}</span>
+              {project.name}
+            </h3>
+            <p className="work-item__desc">{project.eyebrow}</p>
+          </div>
+          <span className="work-item__arrow" aria-hidden="true">
+            ↗
+          </span>
         </div>
-      ) : null}
-      <div className="work-item__meta">
-        <div className="work-item__copy min-w-0">
-          <h3 className="work-item__title">
-            <span className="work-item__num">{number}</span>
-            {project.name}
-          </h3>
-          <p className="work-item__desc">{project.eyebrow}</p>
-        </div>
-        <span className="work-item__arrow" aria-hidden="true">
-          ↗
-        </span>
-      </div>
-    </ProductLink>
+      </ProductLink>
+      <DetailsLink slug={project.slug} />
+    </div>
   );
 }
 
@@ -51,33 +63,36 @@ function ShippedProject({
   const cardSrc = media?.cardImage ?? project.image;
 
   return (
-    <ProductLink project={project} className="shipped-project group">
-      <div className="shipped-project__media">
-        {cardSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={cardSrc}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="shipped-project__img"
-          />
-        ) : null}
-      </div>
-
-      <div className="shipped-project__meta">
-        <div className="shipped-project__copy min-w-0">
-          <h3 className="shipped-project__title">
-            <span className="shipped-project__num">{number}</span>
-            {project.name}
-          </h3>
-          <p className="shipped-project__desc">{project.eyebrow}</p>
+    <div className="flex min-w-0 flex-col">
+      <ProductLink project={project} className="shipped-project group">
+        <div className="shipped-project__media">
+          {cardSrc ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={cardSrc}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="shipped-project__img"
+            />
+          ) : null}
         </div>
-        <span className="shipped-project__arrow" aria-hidden="true">
-          ↗
-        </span>
-      </div>
-    </ProductLink>
+
+        <div className="shipped-project__meta">
+          <div className="shipped-project__copy min-w-0">
+            <h3 className="shipped-project__title">
+              <span className="shipped-project__num">{number}</span>
+              {project.name}
+            </h3>
+            <p className="shipped-project__desc">{project.eyebrow}</p>
+          </div>
+          <span className="shipped-project__arrow" aria-hidden="true">
+            ↗
+          </span>
+        </div>
+      </ProductLink>
+      <DetailsLink slug={project.slug} />
+    </div>
   );
 }
 
@@ -98,7 +113,9 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
     const rightNumber = String(7 + pairIndex * 2).padStart(2, "0");
     return { leftProject, rightProject, leftNumber, rightNumber };
   }).filter(
-    (pair): pair is {
+    (
+      pair,
+    ): pair is {
       leftProject: Project;
       rightProject: Project;
       leftNumber: string;
@@ -114,7 +131,8 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
       <div className="mx-auto max-w-6xl">
         <p className="meta-label text-band-light-muted">From concept</p>
         <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl lg:text-5xl">
-          From concept to <span className="text-gradient-brand">live product.</span>
+          From concept to{" "}
+          <span className="text-gradient-brand">live product.</span>
         </h2>
         <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-band-light-muted">
           Digital products designed, engineered and shipped for real-world use.
@@ -134,21 +152,34 @@ export function MoreWorkTable({ projects }: { projects: Project[] }) {
 
         {pairs.length > 0 ? (
           <div className="shipped-work mt-20 sm:mt-24">
-            <p className="meta-label text-band-light-muted">More shipped work</p>
+            <p className="meta-label text-band-light-muted">
+              More shipped work
+            </p>
             <h2 className="section-heading mt-3 max-w-3xl text-3xl sm:text-4xl">
               Products built to be used.
             </h2>
             <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-band-light-muted">
-              Commerce, writing, scheduling and service experiences taken from idea to
-              working software.
+              Commerce, writing, scheduling and service experiences taken from
+              idea to working software.
             </p>
-            <p className="shipped-work__count mt-5">06—11 / Six shipped products</p>
+            <p className="shipped-work__count mt-5">
+              06—11 / Six shipped products
+            </p>
 
             <div className="shipped-work__pairs">
               {pairs.map((pair) => (
-                <div key={`${pair.leftProject.slug}-${pair.rightProject.slug}`} className="shipped-pair">
-                  <ShippedProject project={pair.leftProject} number={pair.leftNumber} />
-                  <ShippedProject project={pair.rightProject} number={pair.rightNumber} />
+                <div
+                  key={`${pair.leftProject.slug}-${pair.rightProject.slug}`}
+                  className="shipped-pair"
+                >
+                  <ShippedProject
+                    project={pair.leftProject}
+                    number={pair.leftNumber}
+                  />
+                  <ShippedProject
+                    project={pair.rightProject}
+                    number={pair.rightNumber}
+                  />
                 </div>
               ))}
             </div>
@@ -177,8 +208,31 @@ function ProductLink({
     );
   }
   return (
-    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={className}>
+    <a
+      href={project.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
       {children}
     </a>
+  );
+}
+
+/** Secondary link to the full product write-up. */
+function DetailsLink({ slug }: { slug: string }) {
+  return (
+    <Link
+      href={`/portfolio/${slug}/`}
+      className="link-arrow mt-3 inline-flex w-fit items-center gap-1.5 text-[13.5px] font-medium text-band-light-muted transition-colors hover:text-band-light-fg"
+    >
+      Product details
+      <span
+        className="arrow transition-transform duration-300"
+        aria-hidden="true"
+      >
+        →
+      </span>
+    </Link>
   );
 }

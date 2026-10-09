@@ -53,29 +53,30 @@ export function SelectedProducts({ projects }: { projects: Project[] }) {
                   <p className="mt-6 text-[13px] tracking-wide text-band-light-muted">
                     {category}
                   </p>
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
-                    >
-                      Visit {project.name}
-                      <span className="arrow transition-transform duration-300" aria-hidden="true">
-                        ↗
-                      </span>
-                    </a>
-                  ) : (
+                  <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-arrow inline-flex items-center gap-2 rounded-full bg-[#0f2a4a] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#1e7fe0]"
+                      >
+                        Visit {project.name}
+                        <span className="arrow transition-transform duration-300" aria-hidden="true">
+                          ↗
+                        </span>
+                      </a>
+                    ) : null}
                     <Link
                       href={`/portfolio/${project.slug}/`}
-                      className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
+                      className="link-arrow inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
                     >
-                      Explore case study
+                      Product details
                       <span className="arrow transition-transform duration-300" aria-hidden="true">
                         →
                       </span>
                     </Link>
-                  )}
+                  </div>
                 </div>
 
                 <div
