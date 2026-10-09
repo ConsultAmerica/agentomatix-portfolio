@@ -53,15 +53,29 @@ export function SelectedProducts({ projects }: { projects: Project[] }) {
                   <p className="mt-6 text-[13px] tracking-wide text-band-light-muted">
                     {category}
                   </p>
-                  <Link
-                    href={`/portfolio/${project.slug}/`}
-                    className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
-                  >
-                    Explore case study
-                    <span className="arrow transition-transform duration-300" aria-hidden="true">
-                      →
-                    </span>
-                  </Link>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
+                    >
+                      Visit {project.name}
+                      <span className="arrow transition-transform duration-300" aria-hidden="true">
+                        ↗
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={`/portfolio/${project.slug}/`}
+                      className="link-arrow mt-6 inline-flex items-center gap-2 text-sm font-medium text-band-light-fg"
+                    >
+                      Explore case study
+                      <span className="arrow transition-transform duration-300" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+                  )}
                 </div>
 
                 <div
