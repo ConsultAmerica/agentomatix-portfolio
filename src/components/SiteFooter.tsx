@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Wordmark } from "./Wordmark";
 
 const footerLinks = [
   { href: "/portfolio/#stories", label: "Work" },
@@ -13,10 +14,7 @@ export function SiteFooter() {
     <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-10">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
-            Agentomatix
-          </p>
-          <p className="mt-1 text-sm text-muted">Digital Product Studio</p>
+          <Wordmark tagline className="text-[30px] sm:text-[34px]" />
         </div>
 
         <nav className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Footer">

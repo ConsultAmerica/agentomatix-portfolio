@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Wordmark } from "./Wordmark";
 
 const navLinks = [
   { href: "/portfolio/#stories", label: "Work" },
@@ -38,9 +39,10 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         <Link
           href="/portfolio/"
-          className="min-w-0 text-[22px] font-semibold tracking-tight text-foreground sm:text-[26px] lg:text-[28px]"
+          className="min-w-0 text-[22px] sm:text-[26px] lg:text-[28px]"
+          aria-label="Agentomatix home"
         >
-          Agentomatix
+          <Wordmark />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
