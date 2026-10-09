@@ -53,7 +53,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       : gallery;
 
   return (
-    <main className="theme-light bg-background text-foreground">
+    <main className="bg-background text-foreground">
       <SiteHeader />
 
       <article className="px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10">
@@ -265,9 +265,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-[#0f2a4a] px-4 text-sm font-medium text-white transition-colors hover:bg-[#1e7fe0]"
+                    className="btn-primary inline-flex min-h-10 w-full items-center justify-center rounded-full px-4 text-sm"
                   >
-                    Visit {project.name} ↗
+                    View live application ↗
                   </a>
                 ) : (
                   <p className="text-sm text-muted">Case study in progress</p>

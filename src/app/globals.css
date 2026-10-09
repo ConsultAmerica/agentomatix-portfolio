@@ -859,18 +859,3 @@ body {
     transition: none !important;
   }
 }
-
-/* Light theme scope: product detail pages use the homepage's grey band
-   instead of navy. Re-points the shared color tokens for everything inside. */
-.theme-light {
-  --background: #eef3f8;
-  --foreground: #0f1f3a;
-  --muted: #5b6f88;
-  --border: rgba(15, 42, 74, 0.12);
-  --surface: #ffffff;
-  --surface-soft: #f6f8fb;
-  --accent: #1e7fe0;
-  --accent-soft: rgba(30, 127, 224, 0.12);
-  background: var(--background);
-  color: var(--foreground);
-}
