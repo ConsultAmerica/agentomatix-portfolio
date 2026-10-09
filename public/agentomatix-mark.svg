@@ -1,12 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0B1A33"/>
-  <text
-    x="32"
-    y="42"
-    text-anchor="middle"
-    font-family="system-ui, -apple-system, Segoe UI, sans-serif"
-    font-size="32"
-    font-weight="700"
-    fill="#F8FAFC"
-  >A</text>
+  <rect width="64" height="64" rx="14" fill="#0f2a4a"/>
+  <!-- Bold geometric "A" (Agento) -->
+  <path fill="#ffffff" fill-rule="evenodd" d="M27.2 11h9.6l13.4 34h-9.1l-2.5-6.8H25.4L22.9 45h-9.1L27.2 11Zm4.8 10.2-4.1 10.9h8.2L32 21.2Z"/>
+  <!-- Brand-blue rule (matix / tagline line) -->
+  <rect x="13.8" y="50" width="36.4" height="4.2" rx="2.1" fill="#1e7fe0"/>
 </svg>

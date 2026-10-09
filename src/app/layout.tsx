@@ -35,10 +35,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  icons: {
-    icon: "/agentomatix-mark.svg",
-    apple: "/agentomatix-mark.svg",
-  },
 };
 
 export default function RootLayout({
